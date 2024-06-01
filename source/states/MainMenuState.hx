@@ -299,8 +299,6 @@ class MainMenuState extends MusicBeatState
 	
 	var endCheck:Bool = false;
 
-	override function update(elapsed:Float)
-	{
 	
 	    #if (debug && android)
 	        if (FlxG.android.justReleased.BACK)
