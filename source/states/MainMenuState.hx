@@ -33,7 +33,6 @@ class MainMenuState extends MusicBeatState
 	var optionTween:Array<FlxTween> = [];
 	var selectedTween:Array<FlxTween> = [];
 	var cameraTween:Array<FlxTween> = [];
-	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
 		'story_mode', // 0
@@ -298,7 +297,7 @@ class MainMenuState extends MusicBeatState
 	
 	var endCheck:Bool = false;
 
-//	override function update(elapsed:Float)
+	override function update(elapsed:Float)
 	{
 	
 	    #if (debug && android)
@@ -427,8 +426,6 @@ class MainMenuState extends MusicBeatState
             currentColorAgain = currentColor - 1;
             if (currentColorAgain <= 0) currentColorAgain = 6;
             
-          //  logoBl.animation.play('bump');
-            
             FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
 			camGame.zoom = 1 + 0.015;			
 			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
@@ -501,9 +498,6 @@ class MainMenuState extends MusicBeatState
 			}
 		});
 		
-		if (logoTween != null) logoTween.cancel();
-		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
-		
 		FlxTween.tween(camGame, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camHUD, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
@@ -558,7 +552,5 @@ class MainMenuState extends MusicBeatState
 		    
 		    spr.updateHitbox();
         });        
-	}
-	
-	
+    }		
 }
