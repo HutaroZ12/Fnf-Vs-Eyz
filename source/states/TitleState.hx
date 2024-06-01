@@ -237,28 +237,6 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
-	
-	function startCutscenesIn()
-	{
-		if (inGame) {
-			startIntro();
-			return;
-		}
-		if (!ClientPrefs.data.skipTitleVideo)
-			#if VIDEOS_ALLOWED 
-			    startVideo('menuExtend/titleIntro');
-			#else
-			    startCutscenesOut();
-			#end
-		else
-			startCutscenesOut();
-	}
-	
-	function startCutscenesOut()
-	{	    
-		inGame = true;
-		startIntro();
-	}
 
 	function startIntro()
 	{
