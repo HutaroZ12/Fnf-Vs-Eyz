@@ -38,7 +38,6 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode', // 0
 		'freeplay', // 1
-		//#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits', // 2
 		//#if !switch 'donate', #end
@@ -253,20 +252,7 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 		
-		/*for (i in 0...optionShit.length)
-		{
-			var option:FlxSprite = menuItems.members[i];
-			
-			if (optionShit.length % 2 == 0){
-			    option.y = 360 + (i - optionShit.length / 2) * 110;
-			    //option.y += 20;
-			}else{
-			    option.y = 360 + (i - (optionShit.length / 2 + 0.5)) * 135;
-			}
-				optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			    */});
-		}
+		FlxG.camera.flash(FlxColor.BLACK, 1.5);
 
 		//FlxG.camera.follow(camFollow, null, 0);
 
