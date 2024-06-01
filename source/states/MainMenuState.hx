@@ -298,7 +298,7 @@ class MainMenuState extends MusicBeatState
 	
 	var endCheck:Bool = false;
 
-	override function update(elapsed:Float)
+//	override function update(elapsed:Float)
 	{
 	
 	    #if (debug && android)
@@ -514,7 +514,7 @@ class MainMenuState extends MusicBeatState
 
 				    switch (daChoice)
 					{
-						        case 'story_mode':
+						case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
 							    if (!ClientPrefs.data.freeplayOld) MusicBeatState.switchState(new FreeplayState());
