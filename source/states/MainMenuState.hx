@@ -233,7 +233,7 @@ class MainMenuState extends MusicBeatState
 
 		        switch (i in 0...optionShit.length)
 			{
-				case 1:	
+				case 0:	
 			                optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
 					ease: FlxEase.backInOut
 			                   });
