@@ -165,6 +165,7 @@ class PlayState extends MusicBeatState
 	public var gf:Character = null;
 	public var boyfriend:Character = null;
 
+	public var blackBars:FlxSprite;
 	public var notes:FlxTypedGroup<Note>;
 	public var killNotes:Array<Note> = [];
 	public var unspawnNotes:Array<Note> = [];
@@ -214,7 +215,6 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
 
-	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
