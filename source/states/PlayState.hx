@@ -551,7 +551,7 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
-		blackBars = new FlxSprite(0,-30).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
     	        blackBars.setGraphicSize(1281, 100);
                 blackBars.scrollFactor.set();
           	blackBars.visible = true;
