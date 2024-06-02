@@ -233,18 +233,30 @@ class MainMenuState extends MusicBeatState
 
 		        switch(i)
 			{
-				case 0:
-					FlxTween.tween(option, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				        option.y = 2;
+				case 0:	
+					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+					ease: FlxEase.backInOut
+			                   });
+		                        }
+				        option.y = 360 + (i - optionShit.length / 2) * 110;
 				case 1:
-					FlxTween.tween(option, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-					option.y = 41;
+					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+					ease: FlxEase.backInOut
+			                   });
+		                        }
+				        option.y = 360 + (i - optionShit.length / 2) * 110;
 				case 2:
-					FlxTween.tween(option, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-					option.y = 9;
+					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+					ease: FlxEase.backInOut
+			                   });
+		                        }
+				        option.y = 360 + (i - optionShit.length / 2) * 110;
 				case 3:
-					FlxTween.tween(option, {x:104}, 2.2, {ease: FlxEase.expoInOut});
-					option.y = 34;
+					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+					ease: FlxEase.backInOut
+			                   });
+		                        }
+				        option.y = 360 + (i - optionShit.length / 2) * 110;
 			}
 			
 		}  
