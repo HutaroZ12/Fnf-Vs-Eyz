@@ -225,10 +225,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
-			
-			if (menuItem.ID == curSelected){
-			menuItem.animation.play('selected');
-			menuItem.updateHitbox();
 
 
 			switch (i)
