@@ -214,6 +214,7 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
 
+	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
@@ -549,6 +550,14 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
+
+		blackBars = new FlxSprite(0,-30).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+    	        blackBars.setGraphicSize(1281, 100);
+                blackBars.scrollFactor.set();
+          	blackBars.visible = true;
+        	blackBars.scrollFactor.set();    		
+         	add(blackBars);
+        	blackBars.camera = camHUD;
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
