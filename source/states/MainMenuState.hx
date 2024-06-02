@@ -153,9 +153,9 @@ class MainMenuState extends MusicBeatState
 		logoBl.updateHitbox();
 		add(logoBl);
 		logoBl.scrollFactor.set(0, 0);
-		logoBl.x = 1280 + 320 - logoBl.width / 2;
+		logoBl.x = 3000 + 3000 - logoBl.width / 2;
 		logoBl.y = 360 - logoBl.height / 2;
-		logoTween = FlxTween.tween(logoBl, {x: 1280 - 320 - logoBl.width / 2 }, 3.1, {ease: FlxEase.backInOut});
+		logoTween = FlxTween.tween(logoBl, {x: 3000 - 3000 - logoBl.width / 2 }, 3.1, {ease: FlxEase.backInOut});
 		// magenta.scrollFactor.set();
 		
 		zerogf = new FlxSprite();
@@ -166,11 +166,11 @@ class MainMenuState extends MusicBeatState
 		zerogf.scrollFactor.set(0, 0.1);
 		zerogf.scale.x = 0.9;
 		zerogf.scale.y = 0.9;
-		zerogf.x = -500;
+		zerogf.x = -1500;
 		zerogf.screenCenter(Y);
 		add(zerogf);
 
-		FlxTween.tween(zerogf, {x:-90}, 2.4, {ease: FlxEase.expoInOut});
+		FlxTween.tween(zerogf, {x:-100}, 2.4, {ease: FlxEase.expoInOut});
 
 		zerobf = new FlxSprite();
 		zerobf.frames = Paths.getSparrowAtlas('menu_BFZ');
@@ -180,11 +180,11 @@ class MainMenuState extends MusicBeatState
 		zerobf.scrollFactor.set(0, 0.1);
 		zerobf.scale.x = 0.9;
 		zerobf.scale.y = 0.9;
-		zerobf.x = -500;
+		zerobf.x = -1500;
 		zerobf.screenCenter(Y);
 		add(zerobf);
 
-		FlxTween.tween(zerobf, {x:-80}, 2.4, {ease: FlxEase.expoInOut});
+		FlxTween.tween(zerobf, {x:-90}, 2.4, {ease: FlxEase.expoInOut});
 
 		mainSide = new FlxSprite(0).loadGraphic(Paths.image('mainSide'));
 		mainSide.scrollFactor.x = 0;
@@ -229,23 +229,28 @@ class MainMenuState extends MusicBeatState
 			if (menuItem.ID == curSelected){
 			menuItem.animation.play('selected');
 			menuItem.updateHitbox();
-		    }
-		}
-		
-		for (i in 0...optionShit.length)
-		{
-			var option:FlxSprite = menuItems.members[i];
-			
-			if (optionShit.length % 2 == 0){
-			    option.y = 360 + (i - optionShit.length / 2) * 110;
-			    //option.y += 20;
-			}else{
-			    option.y = 360 + (i - (optionShit.length / 2 + 0.5)) * 135;
+				
+
+		        switch(i)
+			{
+				case 0:
+					FlxTween.tween(option, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+				        option.y = 2;
+				case 1:
+					FlxTween.tween(option, {x:134}, 2.2, {ease: FlxEase.expoInOut});
+					option.y = 41;
+				case 2:
+					FlxTween.tween(option, {x:114}, 2.2, {ease: FlxEase.expoInOut});
+					option.y = 9;
+				case 3:
+					FlxTween.tween(option, {x:104}, 2.2, {ease: FlxEase.expoInOut});
+					option.y = 34;
 			}
-				optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			    });
-		}
+			
+		}  
+
+
+		FlxG.camera.flash(FlxColor.BLACK, 1.5);
 
 		//FlxG.camera.follow(camFollow, null, 0);
 
