@@ -443,27 +443,49 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.flash(FlxColor.WHITE, 1);
 		canClick = false;				
 		
-		menuItems.forEach(function(spr:FlxSprite)
-			{
-				if (currentlySelected == spr.ID)
-				{
-					FlxTween.tween(spr, {y : 700}, 1.5, {ease: FlxEase.sineInOut,});	
-					FlxTween.tween(mainSide, {x:  1500}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
-					FlxTween.tween(zerobf, {x:  -700}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
-					FlxTween.tween(zerogf, {x:  -700}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
-				}
-				if (currentlySelected != spr.ID)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.4, {ease: FlxEase.sineInOut,});
-					FlxTween.tween(mainSide, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
-					FlxTween.tween(zerobf, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
-					FlxTween.tween(zerogf, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
-					FlxTween.tween(spr, {x : -500}, 2.2, {ease: FlxEase.sineInOut, onComplete: function(twn:FlxTween)
+		for (i in 0...optionShit.length)
+		{
+			var option:FlxSprite = menuItems.members[i];
+			if(optionTween[i] != null) optionTween[i].cancel();
+			if( i != curSelected)
+				optionTween[i] = FlxTween.tween(option, {x: -800}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
+					ease: FlxEase.backInOut,
+					onComplete: function(twn:FlxTween)
 					{
-						spr.kill();
+						option.kill();
 					}
-				});					
+			    });
+		}
+		
+		if (cameraTween[0] != null) cameraTween[0].cancel();
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			if (curSelected == spr.ID)
+			{				
+				
+				//spr.animation.play('selected');
+			    var scr:Float = (optionShit.length - 4) * 0.135;
+			    if(optionShit.length < 6) scr = 0;
+			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
+					ease: FlxEase.backInOut
+			    });
+			
+			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
+					ease: FlxEase.backInOut				
+				});													
 			}
+		});
+		
+		if (logoTween != null) logoTween.cancel();
+		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
+		
+		FlxTween.tween(camGame, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
+		FlxTween.tween(camHUD, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
+		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
+		        ease: FlxEase.cubeInOut,
+		        onComplete: function(twn:FlxTween)
+				{
 				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 			    var daChoice:String = optionShit[curSelected];
