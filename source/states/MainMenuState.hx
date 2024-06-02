@@ -36,13 +36,13 @@ class MainMenuState extends MusicBeatState
 	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
-		'story_mode', // 0
-		'freeplay', // 1
+		'story_mode', // 1
+		'freeplay', // 2
 		//#if MODS_ALLOWED 'mods', #end
 	//	#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits', // 2
+		'credits', // 3
 		//#if !switch 'donate', #end
-		'options' // 3
+		'options' // 4
 	];
 
 	var magenta:FlxSprite;
@@ -233,14 +233,8 @@ class MainMenuState extends MusicBeatState
 
 		        switch (i in 0...optionShit.length)
 			{
-				case 0:	
+				case 1:	
 			                optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			                   });
-		                        }
-				        option.y = 360 + (i - optionShit.length / 2) * 110;
-				case 1:
-					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
 					ease: FlxEase.backInOut
 			                   });
 		                        }
@@ -252,6 +246,12 @@ class MainMenuState extends MusicBeatState
 		                        }
 				        option.y = 360 + (i - optionShit.length / 2) * 110;
 				case 3:
+					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+					ease: FlxEase.backInOut
+			                   });
+		                        }
+				        option.y = 360 + (i - optionShit.length / 2) * 110;
+				case 4:
 					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
 					ease: FlxEase.backInOut
 			                   });
