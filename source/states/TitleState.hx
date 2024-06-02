@@ -220,12 +220,12 @@ class TitleState extends MusicBeatState
 			MusicBeatState.switchState(new FlashingState());
 		} else {
 			if (initialized)
-				startCutscenesIn();
+				startIntro();
 			else
 			{
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					startCutscenesIn();
+					startIntro();
 				});
 			}
 		}
@@ -736,64 +736,4 @@ class TitleState extends MusicBeatState
 			skippedIntro = true;
 		}
 	}
-	
-	#if VIDEOS_ALLOWED
-	var video:VideoSprite;
-	function startVideo(name:String)
-	{
-	    skipVideo = new FlxText(0, FlxG.height - 26, 0, "Press " + #if android "Back on your phone " #else "Enter " #end + "to skip", 18);
-		skipVideo.setFormat(Assets.getFont("assets/fonts/montserrat.ttf").fontName, 18);
-		skipVideo.alpha = 0;
-		skipVideo.alignment = CENTER;
-        skipVideo.screenCenter(X);
-        skipVideo.scrollFactor.set();
-		skipVideo.antialiasing = ClientPrefs.data.antialiasing;
-		
-		
-		#if VIDEOS_ALLOWED
-
-		var filepath:String = Paths.video(name);
-		#if sys
-		if(!FileSystem.exists(filepath))
-		#else
-		if(!OpenFlAssets.exists(filepath))
-		#end
-		{
-			FlxG.log.warn('Couldnt find video file: ' + name);
-			videoEnd();
-			return;
-		}
-        
-        
-		var video:VideoSprite = new VideoSprite(0, 0, 1280, 720);
-			video.playVideo(filepath);
-			add(video);
-			video.updateHitbox();
-			video.finishCallback = function()
-			{
-				videoEnd();
-				return;
-			}
-		showText();	
-		#else
-		FlxG.log.warn('Platform not supported!');
-		videoEnd();
-		return;
-		#end
-	}
-
-	function videoEnd()
-	{
-	    skipVideo.visible = false;
-	    //video.visible = false;
-		startCutscenesOut();
-	}
-	
-	function showText(){
-	    add(skipVideo);
-		FlxTween.tween(skipVideo, {alpha: 1}, 1, {ease: FlxEase.quadIn});
-		FlxTween.tween(skipVideo, {alpha: 0}, 1, {ease: FlxEase.quadIn, startDelay: 4});
-	
-	}
-	#end
 }
