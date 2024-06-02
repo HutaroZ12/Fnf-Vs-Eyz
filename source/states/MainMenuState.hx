@@ -229,51 +229,7 @@ class MainMenuState extends MusicBeatState
 			if (menuItem.ID == curSelected){
 			menuItem.animation.play('selected');
 			menuItem.updateHitbox();
-			
-			switch (i)
-			{
-			    case 0:
-				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
-				{
-				finishedFunnyMove = true;
-			        changeItem();
-			               }	
-			        });
-				menuItem.y = 2;
-
-			    case 1:
-				FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
-				{
-				finishedFunnyMove = true;
-			        changeItem();
-			               }	
-			        });
-				menuItem.y = 41;
-
-			    case 2:
-				FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
-				{
-				finishedFunnyMove = true;
-			        changeItem();
-			               }	
-			        });
-				menuItem.y = 9;
-
-			    case 3:
-				FlxTween.tween(menuItem, {x:104}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
-				{
-				finishedFunnyMove = true;
-			        changeItem();
-			               }	
-			        });
-				menuItem.y = 34;	
-					
-			}
-		}
-		
-					           
-		FlxG.camera.flash(FlxColor.BLACK, 1.5);
-		   /* }
+		    }
 		}
 		
 		for (i in 0...optionShit.length)
@@ -291,7 +247,7 @@ class MainMenuState extends MusicBeatState
 			    });
 		}
 
-		*///FlxG.camera.follow(camFollow, null, 0);
+		//FlxG.camera.follow(camFollow, null, 0);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "NovaFlare Engine v" + novaFlareEngineVersion/* + ' - HOTFIX'*/, 12);
 		versionShit.scrollFactor.set();
