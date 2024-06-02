@@ -229,34 +229,6 @@ class MainMenuState extends MusicBeatState
 			if (menuItem.ID == curSelected){
 			menuItem.animation.play('selected');
 			menuItem.updateHitbox();
-				
-
-		        switch (i in 0...optionShit.length)
-			{
-				case 1:	
-			                optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			                   });
-		                        }
-				        option.y = 360 + (i - optionShit.length / 2) * 110;
-				case 2:
-					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			                   });
-		                        }
-				        option.y = 360 + (i - optionShit.length / 2) * 110;
-				case 3:
-					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			                   });
-		                        }
-				        option.y = 360 + (i - optionShit.length / 2) * 110;
-				case 4:
-					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
-					ease: FlxEase.backInOut
-			                   });
-		                        }
-				        option.y = 360 + (i - optionShit.length / 2) * 110;
 			}
 			
 		}  
@@ -478,39 +450,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		canClick = false;				
 		
-		for (i in 0...optionShit.length)
-		{
-			var option:FlxSprite = menuItems.members[i];
-			if(optionTween[i] != null) optionTween[i].cancel();
-			if( i != curSelected)
-				optionTween[i] = FlxTween.tween(option, {x: -800}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
-					ease: FlxEase.backInOut,
-					onComplete: function(twn:FlxTween)
-					{
-						option.kill();
-					}
-			    });
-		}
-		
 		if (cameraTween[0] != null) cameraTween[0].cancel();
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			if (curSelected == spr.ID)
-			{				
-				
-				//spr.animation.play('selected');
-			    var scr:Float = (optionShit.length - 4) * 0.135;
-			    if(optionShit.length < 6) scr = 0;
-			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
-					ease: FlxEase.backInOut
-			    });
-			
-			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
-					ease: FlxEase.backInOut				
-				});													
-			}
-		});
 		
 		if (logoTween != null) logoTween.cancel();
 		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
