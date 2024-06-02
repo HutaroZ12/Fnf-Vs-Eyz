@@ -33,7 +33,6 @@ class MainMenuState extends MusicBeatState
 	var optionTween:Array<FlxTween> = [];
 	var selectedTween:Array<FlxTween> = [];
 	var cameraTween:Array<FlxTween> = [];
-	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
 		'story_mode', // 0
@@ -46,7 +45,6 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
-	var logoBl:FlxSprite;
     var zerobf:FlxSprite;
 	var zerogf:FlxSprite;
 	var mainSide:FlxSprite;
@@ -139,24 +137,6 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
-		
-		logoBl = new FlxSprite(0, 0);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		logoBl.antialiasing = ClientPrefs.data.antialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-		logoBl.animation.play('bump');
-		logoBl.offset.x = 0;
-		logoBl.offset.y = 0;
-		logoBl.scale.x = (640 / logoBl.frameWidth);
-		logoBl.scale.y = logoBl.scale.x;
-		logoBl.updateHitbox();
-		add(logoBl);
-		logoBl.scrollFactor.set(0, 0);
-		logoBl.x = 3000 + 3000 - logoBl.width / 2;
-		logoBl.y = 360 - logoBl.height / 2;
-		logoTween = FlxTween.tween(logoBl, {x: 3000 - 3000 - logoBl.width / 2 }, 3.1, {ease: FlxEase.backInOut});
-		// magenta.scrollFactor.set();
 		
 		zerogf = new FlxSprite();
 		zerogf.frames = Paths.getSparrowAtlas('menu_GFZ');
@@ -424,11 +404,9 @@ class MainMenuState extends MusicBeatState
             currentColorAgain = currentColor - 1;
             if (currentColorAgain <= 0) currentColorAgain = 6;
             
-            logoBl.animation.play('bump');
-            
             FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
-			camGame.zoom = 1 + 0.015;			
-			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
+			camGame.x = 1 + 0.015;			
+			cameraTween[0] = FlxTween.tween(camGame, {x: 100}, 2.4, {ease: FlxEase.cubeOut});
 		    
 			menuItems.forEach(function(spr:FlxSprite)	{
 				spr.scale.x = 0.7;
@@ -462,18 +440,31 @@ class MainMenuState extends MusicBeatState
 	{
 		endCheck = true;
 		FlxG.sound.play(Paths.sound('confirmMenu'));
+		FlxG.camera.flash(FlxColor.WHITE, 1);
 		canClick = false;				
 		
-		if (cameraTween[0] != null) cameraTween[0].cancel();
-		
-		if (logoTween != null) logoTween.cancel();
-		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
-		
-		FlxTween.tween(camGame, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(camHUD, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
-		        ease: FlxEase.cubeInOut,
-		        onComplete: function(twn:FlxTween)
+		menuItems.forEach(function(spr:FlxSprite)
+			{
+				if (currentlySelected == spr.ID)
+				{
+					FlxTween.tween(spr, {y : 700}, 1.5, {ease: FlxEase.sineInOut,});	
+					FlxTween.tween(mainSide, {x:  1500}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
+					FlxTween.tween(zerobf, {x:  -700}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
+					FlxTween.tween(zerogf, {x:  -700}, 2.2, {ease: FlxEase.sineInOut, type: ONESHOT, startDelay: 0});
+				}
+				if (currentlySelected != spr.ID)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.4, {ease: FlxEase.sineInOut,});
+					FlxTween.tween(mainSide, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
+					FlxTween.tween(zerobf, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
+					FlxTween.tween(zerogf, {alpha: 0}, 2.2, {ease: FlxEase.sineInOut,});
+					FlxTween.tween(spr, {x : -500}, 2.2, {ease: FlxEase.sineInOut, onComplete: function(twn:FlxTween)
+					{
+						spr.kill();
+					}
+				});					
+			} else {
+				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 			    var daChoice:String = optionShit[curSelected];
 
