@@ -273,10 +273,10 @@ class MainMenuState extends MusicBeatState
 		
 					           
 		FlxG.camera.flash(FlxColor.BLACK, 1.5);
-		    }
+		   /* }
 		}
 		
-	/*	for (i in 0...optionShit.length)
+		for (i in 0...optionShit.length)
 		{
 			var option:FlxSprite = menuItems.members[i];
 			
@@ -289,9 +289,9 @@ class MainMenuState extends MusicBeatState
 				optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
 					ease: FlxEase.backInOut
 			    });
-	*/	}
+		}
 
-		//FlxG.camera.follow(camFollow, null, 0);
+		*///FlxG.camera.follow(camFollow, null, 0);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "NovaFlare Engine v" + novaFlareEngineVersion/* + ' - HOTFIX'*/, 12);
 		versionShit.scrollFactor.set();
@@ -472,10 +472,10 @@ class MainMenuState extends MusicBeatState
 			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
 		    
 			menuItems.forEach(function(spr:FlxSprite)	{
-				spr.scale.x = 0.63;
-				spr.scale.y = 0.63;
-				    FlxTween.tween(spr.scale, {x: 0.6}, 0.6, {ease: FlxEase.cubeOut});
-				    FlxTween.tween(spr.scale, {y: 0.6}, 0.6, {ease: FlxEase.cubeOut});
+				spr.scale.x = 0.7;
+				spr.scale.y = 0.7;
+				    FlxTween.tween(spr.scale, {x: 0.7}, 0.7, {ease: FlxEase.cubeOut});
+				    FlxTween.tween(spr.scale, {y: 0.7}, 0.7, {ease: FlxEase.cubeOut});
 			
 				
             });
