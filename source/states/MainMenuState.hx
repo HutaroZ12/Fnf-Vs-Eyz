@@ -42,8 +42,8 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
-	var zerobf:FlxSprite;
 	var zerogf:FlxSprite;
+	var zerobf:FlxSprite;
 	var mainSide:FlxSprite;
 	
     //var musicDisplay:SpectogramSprite;
@@ -297,7 +297,7 @@ class MainMenuState extends MusicBeatState
 	
 	var endCheck:Bool = false;
 
-	override function update(elapsed:Float)
+	//override function update(elapsed:Float)
 	{
 	
 	    #if (debug && android)
@@ -551,6 +551,5 @@ class MainMenuState extends MusicBeatState
 		    }
 		    
 		    spr.updateHitbox();
-        });        
-    }		
-}
+        }
+}		
