@@ -231,10 +231,10 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 				
 
-		        switch(i)
+		        switch (i in 0...optionShit.length)
 			{
-				case 0:	
-					optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
+				case 1:	
+			                optionTween[i] = FlxTween.tween(option, {x: 100}, 0.7 + 0.08 * i , {
 					ease: FlxEase.backInOut
 			                   });
 		                        }
