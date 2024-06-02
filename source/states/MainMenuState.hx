@@ -36,13 +36,13 @@ class MainMenuState extends MusicBeatState
 	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
-		'story_mode', // 1
-		'freeplay', // 2
+		'story_mode', // 0
+		'freeplay', // 1
 		//#if MODS_ALLOWED 'mods', #end
 	//	#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits', // 3
+		'credits', // 2
 		//#if !switch 'donate', #end
-		'options' // 4
+		'options' // 3
 	];
 
 	var magenta:FlxSprite;
@@ -229,6 +229,46 @@ class MainMenuState extends MusicBeatState
 			if (menuItem.ID == curSelected){
 			menuItem.animation.play('selected');
 			menuItem.updateHitbox();
+
+
+			switch (i)
+			{
+			    case 0:
+				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				{
+				finishedFunnyMove = true;
+			        changeItem();
+			               }	
+			        });
+				menuItem.y = 2;
+
+			    case 1:
+				FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				{
+				finishedFunnyMove = true;
+			        changeItem();
+			               }	
+			        });
+				menuItem.y = 41;
+
+			    case 2:
+				FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				{
+				finishedFunnyMove = true;
+			        changeItem();
+			               }	
+			        });
+				menuItem.y = 9;
+
+			    case 3:
+				FlxTween.tween(menuItem, {x:104}, 2.2, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				{
+				finishedFunnyMove = true;
+			        changeItem();
+			               }	
+			        });
+				menuItem.y = 34;
+					
 			}
 			
 		}  
