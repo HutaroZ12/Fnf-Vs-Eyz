@@ -463,7 +463,7 @@ class MainMenuState extends MusicBeatState
 						spr.kill();
 					}
 				});					
-			} else {
+			}
 				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 			    var daChoice:String = optionShit[curSelected];
