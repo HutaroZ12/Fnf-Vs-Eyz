@@ -406,8 +406,8 @@ class MainMenuState extends MusicBeatState
             if (currentColorAgain <= 0) currentColorAgain = 6;
             
             FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
-			camGame.x = 1 + 0.015;			
-			cameraTween[0] = FlxTween.tween(camGame, {x: 100}, 2.4, {ease: FlxEase.cubeOut});
+			camGame.zoom = 1 + 0.015;			
+			cameraTween[0] = FlxTween.tween(camGame, {zoom: 100}, 2.4, {ease: FlxEase.cubeOut});
 		    
 			menuItems.forEach(function(spr:FlxSprite)	{
 				spr.scale.x = 0.7;
@@ -458,7 +458,7 @@ class MainMenuState extends MusicBeatState
 			var option:FlxSprite = menuItems.members[i];
 			if(optionTween[i] != null) optionTween[i].cancel();
 			if( i != curSelected)
-				optionTween[i] = FlxTween.tween(option, {x: -800}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
+				optionTween[i] = FlxTween.tween(option, {x: -1500}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
 					ease: FlxEase.backInOut,
 					onComplete: function(twn:FlxTween)
 					{
@@ -467,13 +467,32 @@ class MainMenuState extends MusicBeatState
 			    });
 		}
 		
+		if (cameraTween[0] != null) cameraTween[0].cancel();
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			if (curSelected == spr.ID)
+			{				
+				
+				//spr.animation.play('selected');
+			    var scr:Float = (optionShit.length - 4) * 0.135;
+			    if(optionShit.length < 6) scr = 0;
+			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
+					ease: FlxEase.backInOut
+			    });
+			
+			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
+					ease: FlxEase.backInOut				
+				});													
+			}
+		});
+
 		FlxTween.tween(camGame, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camHUD, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
 		        ease: FlxEase.cubeInOut,
 		        onComplete: function(twn:FlxTween)
 				{
-
 			FlxFlicker.flicker(spr, 1, 1, false, false, function(flick:FlxFlicker)
 
 		        {
