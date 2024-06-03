@@ -406,7 +406,7 @@ class MainMenuState extends MusicBeatState
             
             FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
 			camGame.zoom = 1 + 0.015;			
-			cameraTween[0] = FlxTween.tween(camGame, {zoom: 100}, 2.4, {ease: FlxEase.cubeOut});
+			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 2.4, {ease: FlxEase.cubeOut});
 		    
 			menuItems.forEach(function(spr:FlxSprite)	{
 				spr.scale.x = 0.7;
