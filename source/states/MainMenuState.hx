@@ -453,20 +453,6 @@ class MainMenuState extends MusicBeatState
 		/*if (ClientPrefs.data.flashing)
 		FlxFlicker.flicker(magenta, 1.1, 0.15, false);*/
 
-		for (i in 0...optionShit.length)
-		{
-			var option:FlxSprite = menuItems.members[i];
-			if(optionTween[i] != null) optionTween[i].cancel();
-			if( i != curSelected)
-				optionTween[i] = FlxTween.tween(option, {x: -1500}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
-					ease: FlxEase.backInOut,
-					onComplete: function(twn:FlxTween)
-					{
-						option.kill();
-					}
-			    });
-		}
-		
 		if (cameraTween[0] != null) cameraTween[0].cancel();
 
 		menuItems.forEach(function(spr:FlxSprite)
