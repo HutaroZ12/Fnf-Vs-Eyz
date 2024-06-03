@@ -177,7 +177,7 @@ class MainMenuState extends MusicBeatState
 		mainSide.y = -90;
 		add(mainSide);
 
-		FlxTween.tween(mainSide, {x: 0}, 2.2, {ease: FlxEase.quartInOut});
+		FlxTween.tween(mainSide, {x: 1}, 2.2, {ease: FlxEase.quartInOut});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
