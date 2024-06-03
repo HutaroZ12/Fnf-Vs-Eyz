@@ -490,10 +490,7 @@ class MainMenuState extends MusicBeatState
 		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
 		        ease: FlxEase.cubeInOut,
 		        onComplete: function(twn:FlxTween)
-				{
-			FlxFlicker.flicker(spr, 1, 1, false, false, function(flick:FlxFlicker)
-
-		        {
+			{
 			    var daChoice:String = optionShit[curSelected];
 
 				    switch (daChoice)
