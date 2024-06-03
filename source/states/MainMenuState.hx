@@ -185,6 +185,7 @@ class MainMenuState extends MusicBeatState
 		var scale:Float = 0.6;
 		if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
+		        menuItem.x = 1500;
 		}
 
 		for (i in 0...optionShit.length)
@@ -205,7 +206,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
-			menuItem.x = 1500;
 
 
 			switch (i)
@@ -480,17 +480,22 @@ class MainMenuState extends MusicBeatState
 			    });
 			
 			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
-					ease: FlxEase.backInOut				
+					ease: FlxEase.backInOut	
+
 				});													
 			}
 		});
-	
+
 		FlxTween.tween(camGame, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camHUD, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
 		        ease: FlxEase.cubeInOut,
 		        onComplete: function(twn:FlxTween)
 				{
+
+			FlxFlicker.flicker(spr, 1, 1, false, false, function(flick:FlxFlicker)
+
+		        {
 			    var daChoice:String = optionShit[curSelected];
 
 				    switch (daChoice)
