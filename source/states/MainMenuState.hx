@@ -173,11 +173,11 @@ class MainMenuState extends MusicBeatState
 		mainSide.updateHitbox();
 		mainSide.screenCenter();
 		mainSide.antialiasing = ClientPrefs.data.antialiasing;
-		mainSide.x = 1500;
+		mainSide.x = 1200;
 		mainSide.y = -90;
 		add(mainSide);
 
-		FlxTween.tween(mainSide, {x: 700}, 2.2, {ease: FlxEase.quartInOut});
+		FlxTween.tween(mainSide, {x: 0}, 2.2, {ease: FlxEase.quartInOut});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -475,13 +475,11 @@ class MainMenuState extends MusicBeatState
 			{				
 				
 				//spr.animation.play('selected');
-			    var scr:Float = (optionShit.length - 4) * 0.135;
-			    if(optionShit.length < 6) scr = 0;
-			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
+			    FlxTween.tween(spr, {y: 2000 - spr.height / 2}, 0.6, {
 					ease: FlxEase.backInOut
 			    });
 			
-			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
+			    FlxTween.tween(spr, {x: 2000 - spr.width / 2}, 0.6, {
 					ease: FlxEase.backInOut				
 				});													
 			}
