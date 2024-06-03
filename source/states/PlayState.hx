@@ -551,14 +551,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
-		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
-    	        blackBars.setGraphicSize(1280, 720);
-                blackBars.scrollFactor.set();
-          	blackBars.visible = false;
-        	blackBars.scrollFactor.set();    		
-         	add(blackBars);
-        	blackBars.camera = camHUD;
-
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
@@ -626,6 +618,14 @@ class PlayState extends MusicBeatState
 		uiGroup.add(botplayTxt);
 		if(ClientPrefs.data.downScroll)
 			botplayTxt.y = timeBar.y - 78;
+
+		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+    	        blackBars.setGraphicSize(1280, 720);
+                blackBars.scrollFactor.set();
+          	blackBars.visible = true;
+        	blackBars.scrollFactor.set();    		
+         	add(blackBars);
+        	blackBars.camera = camHUD;
 			
 		if(ClientPrefs.data.timeBarType == 'Song Name')
 		{
