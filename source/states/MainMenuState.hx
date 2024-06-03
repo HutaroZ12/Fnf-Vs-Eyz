@@ -205,6 +205,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			menuItem.x = 1500;
 
 
 			switch (i)
@@ -447,9 +448,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxTween.tween(zerobf, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
 
-		FlxTween.tween(mainSide, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
-
-		FlxTween.tween(menuItem, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
+		FlxTween.tween(mainSide, {x:-1500}, 2.2, {ease: FlxEase.expoInOut});
 		
 		/*if (ClientPrefs.data.flashing)
 		FlxFlicker.flicker(magenta, 1.1, 0.15, false);*/
