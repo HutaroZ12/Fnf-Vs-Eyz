@@ -475,8 +475,6 @@ class MainMenuState extends MusicBeatState
 			{				
 				
 				//spr.animation.play('selected');
-			    var scr:Float = (optionShit.length - 4) * 0.135;
-			    if(optionShit.length < 6) scr = 0;
 			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
 					ease: FlxEase.backInOut
 			    });
