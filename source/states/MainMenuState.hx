@@ -441,51 +441,41 @@ class MainMenuState extends MusicBeatState
 		endCheck = true;
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		FlxG.camera.flash(FlxColor.WHITE, 1);
-		canClick = false;				
-		
-		for (i in 0...optionShit.length)
-		{
-			var option:FlxSprite = menuItems.members[i];
-			if(optionTween[i] != null) optionTween[i].cancel();
-			if( i != curSelected)
-				optionTween[i] = FlxTween.tween(option, {x: -800}, 0.6 + 0.1 * Math.abs(curSelected - i ), {
-					ease: FlxEase.backInOut,
-					onComplete: function(twn:FlxTween)
-					{
-						option.kill();
-					}
-			    });
-		}
-		
-		if (cameraTween[0] != null) cameraTween[0].cancel();
+		canClick = false;
 
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			if (curSelected == spr.ID)
-			{				
-				
-				//spr.animation.play('selected');
-			    var scr:Float = (optionShit.length - 4) * 0.135;
-			    if(optionShit.length < 6) scr = 0;
-			    FlxTween.tween(spr, {y: 360 - spr.height / 2}, 0.6, {
-					ease: FlxEase.backInOut
-			    });
-			
-			    FlxTween.tween(spr, {x: 640 - spr.width / 2}, 0.6, {
-					ease: FlxEase.backInOut				
-				});													
-			}
-		});
+		FlxTween.tween(zerogf, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
+
+		FlxTween.tween(zerobf, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
+
+		FlxTween.tween(mainSide, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
+
+		FlxTween.tween(menuItem, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
 		
-		if (logoTween != null) logoTween.cancel();
-		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
-		
-		FlxTween.tween(camGame, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(camHUD, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
-		        ease: FlxEase.cubeInOut,
-		        onComplete: function(twn:FlxTween)
-				{
+		/*if (ClientPrefs.data.flashing)
+		FlxFlicker.flicker(magenta, 1.1, 0.15, false);*/
+
+					menuItems.forEach(function(spr:FlxSprite)
+					{
+						if (curSelected != spr.ID)
+						{
+							FlxTween.tween(spr, {x: -1500}, 2.2, {
+								ease: FlxEase.expoInOut,
+							});
+							
+						}
+						else
+						{
+							
+
+							FlxTween.tween(spr, {x: -1500}, 2.2, {
+								ease: FlxEase.expoInOut,
+							});
+
+							FlxTween.tween(spr, {alpha: 0}, 3.2, {
+								ease: FlxEase.expoInOut,
+							});
+							
+
 				FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 			    var daChoice:String = optionShit[curSelected];
