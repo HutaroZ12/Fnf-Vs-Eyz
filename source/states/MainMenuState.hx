@@ -174,7 +174,6 @@ class MainMenuState extends MusicBeatState
 		mainSide.screenCenter();
 		mainSide.antialiasing = ClientPrefs.data.antialiasing;
 		mainSide.x = 1200;
-		mainSide.y = -90;
 		add(mainSide);
 
 		FlxTween.tween(mainSide, {x: 1}, 2.2, {ease: FlxEase.quartInOut});
@@ -406,7 +405,7 @@ class MainMenuState extends MusicBeatState
             
             FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
 			camGame.zoom = 1 + 0.015;			
-			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 2.4, {ease: FlxEase.cubeOut});
+			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
 		    
 			menuItems.forEach(function(spr:FlxSprite)	{
 				spr.scale.x = 0.7;
@@ -460,11 +459,11 @@ class MainMenuState extends MusicBeatState
 			{				
 				
 				//spr.animation.play('selected');
-			    FlxTween.tween(spr, {y: 2000 - spr.height / 2}, 0.6, {
+			    FlxTween.tween(spr, {x: 2000 - spr.height / 2}, 2.2, {
 					ease: FlxEase.backInOut
 			    });
 			
-			    FlxTween.tween(spr, {x: 2000 - spr.width / 2}, 0.6, {
+			    FlxTween.tween(spr, {x: 2000 - spr.width / 2}, 2.2, {
 					ease: FlxEase.backInOut				
 				});													
 			}
