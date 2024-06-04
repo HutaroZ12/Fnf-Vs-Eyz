@@ -165,7 +165,6 @@ class PlayState extends MusicBeatState
 	public var gf:Character = null;
 	public var boyfriend:Character = null;
 
-	public var blackBars:FlxSprite;
 	public var notes:FlxTypedGroup<Note>;
 	public var killNotes:Array<Note> = [];
 	public var unspawnNotes:Array<Note> = [];
@@ -259,8 +258,9 @@ class PlayState extends MusicBeatState
 	public var judgementCounter_S:JudgementCounter; //add _S is make sure nobody make a new one broken this
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
+	public var blackBars:FlxSprite;
 	
-	public var pauseButton_menu:FlxSprite;
+	//public var pauseButton_menu:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
