@@ -169,6 +169,8 @@ class MainMenuState extends MusicBeatState
 		mainSide = new FlxSprite(0).loadGraphic(Paths.image('mainSide'));
 		mainSide.scrollFactor.x = 0;
 		mainSide.scrollFactor.y = 0;
+		mainSide.scale.x = 2;
+		mainSide.scale.y = 2;
 		mainSide.setGraphicSize(Std.int(mainSide.width * 0.75));
 		mainSide.updateHitbox();
 		mainSide.screenCenter();
@@ -176,7 +178,7 @@ class MainMenuState extends MusicBeatState
 		mainSide.x = 1200;
 		add(mainSide);
 
-		FlxTween.tween(mainSide, {x: 1}, 2.2, {ease: FlxEase.quartInOut});
+		FlxTween.tween(mainSide, {x: 0}, 2.2, {ease: FlxEase.quartInOut});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -459,11 +461,11 @@ class MainMenuState extends MusicBeatState
 			{				
 				
 				//spr.animation.play('selected');
-			    FlxTween.tween(spr, {x: 2000 - spr.height / 2}, 2.2, {
+			    FlxTween.tween(spr, {x: -2000 - spr.height / 2}, 2.2, {
 					ease: FlxEase.backInOut
 			    });
 			
-			    FlxTween.tween(spr, {x: 2000 - spr.width / 2}, 2.2, {
+			    FlxTween.tween(spr, {x: -2000 - spr.width / 2}, 2.2, {
 					ease: FlxEase.backInOut				
 				});													
 			}
