@@ -260,7 +260,7 @@ class PlayState extends MusicBeatState
 	var scoreTxtTween:FlxTween;
 	public var blackBars:FlxSprite;
 	
-	//public var pauseButton_menu:FlxSprite;
+	public var pauseButton_menu:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
