@@ -23,7 +23,7 @@ class FPSCounter extends Sprite
 		for(label in [this.data, this.title]) {
 			label.x = 0;
 			label.y = 0;
-			label.defaultTextFormat = new TextFormat(Assets.getFont("assets/fonts/FPS.ttf").fontName, label == this.data ? 36 : 16, 0xFFFFFFFF, false, null, null, label == this.data ? CENTER : RIGHT, 0, 0);			
+			label.defaultTextFormat = new TextFormat(Assets.getFont("assets/fonts/vcr.ttf").fontName, label == this.data ? 36 : 16, 0xFFFFFFFF, false, null, null, label == this.data ? CENTER : RIGHT, 0, 0);			
 			label.multiline = label.wordWrap = false;
 			label.selectable = false; 
 			label.mouseEnabled = false;
