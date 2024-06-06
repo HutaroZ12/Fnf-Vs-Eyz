@@ -54,7 +54,6 @@ class CustomFadeTransition extends FlxSubState {
 				},
 			ease: FlxEase.expoInOut});
 					
-		}
 		else {
 		    try{	    
 			loadLeftTween = FlxTween.tween(loadLeft, {x: -1280}, duration, {
