@@ -15,7 +15,7 @@ import states.TitleState;
 	public var noteDetectionFix:Bool = true;
 	public var ghostTapping:Bool = true;
 	public var guitarHeroSustains:Bool = true;
-	public var resultsScreen:Bool = true;
+	public var resultsScreen:Bool = false;
 	
 	public var playOpponent:Bool = false;
 	public var opponentCodeFix:Bool = false;
@@ -29,7 +29,7 @@ import states.TitleState;
 	public var memoryType:Int = 0;	
 	public var FPSScale:Float = 1;
 	public var WatermarkScale:Float = 1;
-	public var showWatermark:Bool = true;					
+	public var showWatermark:Bool = false;					
 	
 	public var noteSkin:String = 'Default';
 	public var splashSkin:String = 'Psych';
@@ -69,7 +69,7 @@ import states.TitleState;
 	public var CustomFadeSound:Float = 0.5;
 	public var CustomFadeText:Bool = true;
 	public var skipTitleVideo:Bool = false;		
-	public var freeplayOld:Bool = false;
+	public var freeplayOld:Bool = true;
 	
 	public var gameOverVibration:Bool = false;	
 	public var discordRPC:Bool = true;
