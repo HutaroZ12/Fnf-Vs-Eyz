@@ -52,15 +52,11 @@ class CustomFadeTransition extends FlxSubState {
 		add(loadLeft);
 		loadLeft.setGraphicSize(FlxG.width, FlxG.height);
 		loadLeft.updateHitbox();
-		
+	
 		if(!isTransIn) {
 		    try{
 			//FlxG.sound.play(Paths.sound('loading_close_move'),ClientPrefs.data.CustomFadeSound);
-			}
-			//if (!ClientPrefs.data.CustomFadeText) {
-		         //   EventText.text = '';
-			 //   WaterMark.text = '';
-			}
+		        }
 			loadLeftTween = FlxTween.tween(loadLeft, {x: 0}, duration, {
 				onComplete: function(twn:FlxTween) {
 					if(finishCallback != null) {
@@ -76,31 +72,10 @@ class CustomFadeTransition extends FlxSubState {
 					}
 				},
 			ease: FlxEase.expoInOut});
-			
-			/*loadTextTween = FlxTween.tween(WaterMark, {x: 50}, duration, {
-				onComplete: function(twn:FlxTween) {
-					if(finishCallback != null) {
-						finishCallback();
-					}
-				},
-			ease: FlxEase.expoInOut});
-			
-			EventTextTween = FlxTween.tween(EventText, {x: 50}, duration, {
-				onComplete: function(twn:FlxTween) {
-					if(finishCallback != null) {
-						finishCallback();
-					}
-				},
-			ease: FlxEase.expoInOut});
-		*/	
+		
 		} else {
 		    try{
-			  //  FlxG.sound.play(Paths.sound('loading_open_move'),ClientPrefs.data.CustomFadeSound);
-		//	}
-			//EventText.text = 'COMPLETED !';
-			//if (!ClientPrefs.data.CustomFadeText) {
-			  //  EventText.text = '';
-			 //   WaterMark.text = '';
+			    //FlxG.sound.play(Paths.sound('loading_open_move'),ClientPrefs.data.CustomFadeSound);
 			}
 			loadLeftTween = FlxTween.tween(loadLeft, {x: -1280}, duration, {
 				onComplete: function(twn:FlxTween) {
@@ -113,20 +88,8 @@ class CustomFadeTransition extends FlxSubState {
 					close();
 				},
 			ease: FlxEase.expoInOut});
+		
 			
-			/*loadTextTween = FlxTween.tween(WaterMark, {x: -1230}, duration, {
-				onComplete: function(twn:FlxTween) {
-					close();
-				},
-			ease: FlxEase.expoInOut});
-			
-			EventTextTween = FlxTween.tween(EventText, {x: -1230}, duration, {
-				onComplete: function(twn:FlxTween) {
-					close();
-				},
-			ease: FlxEase.expoInOut});
-			
-		*/	
 		}
 		}
 		else{
@@ -136,29 +99,11 @@ class CustomFadeTransition extends FlxSubState {
 		add(loadAlpha);
 		loadAlpha.setGraphicSize(FlxG.width, FlxG.height);
 		loadAlpha.updateHitbox();
-		
-		/*WaterMark = new FlxText( 50, 720 - 50 - 50 * 2, 0, 'NF ENGINE V' + MainMenuState.novaFlareEngineVersion, 50);
-		WaterMark.scrollFactor.set();
-		WaterMark.setFormat(Assets.getFont("assets/fonts/loadText.ttf").fontName, 50, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		WaterMark.antialiasing = ClientPrefs.data.antialiasing;
-		add(WaterMark);
-        
-        EventText= new FlxText( 50, 720 - 50 - 50, 0, 'LOADING . . . . . . ', 50);
-		EventText.scrollFactor.set();
-		EventText.setFormat(Assets.getFont("assets/fonts/loadText.ttf").fontName, 50, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		EventText.antialiasing = ClientPrefs.data.antialiasing;
-		add(EventText);
-		*/
-	//	if(!isTransIn) {
-		  //  try{
-			//    FlxG.sound.play(Paths.sound('loading_close_alpha'),ClientPrefs.data.CustomFadeSound);
-			//}
-		//	if (!ClientPrefs.data.CustomFadeText) {
-			//    EventText.text = '';
-			//    WaterMark.text = '';
-			//}
-			/*WaterMark.alpha = 0;
-			EventText.alpha = 0;
+	
+		if(!isTransIn) {
+		    try{
+			  //  FlxG.sound.play(Paths.sound('loading_close_alpha'),ClientPrefs.data.CustomFadeSound);
+		        }
 			loadAlpha.alpha = 0;
 			loadAlphaTween = FlxTween.tween(loadAlpha, {alpha: 1}, duration, {
 				onComplete: function(twn:FlxTween) {
@@ -167,50 +112,17 @@ class CustomFadeTransition extends FlxSubState {
 					}
 				},
 			ease: FlxEase.sineInOut});
-			
-			loadTextTween = FlxTween.tween(WaterMark, {alpha: 1}, duration, {
-				onComplete: function(twn:FlxTween) {
-					if(finishCallback != null) {
-						finishCallback();
-					}
-				},
-			ease: FlxEase.sineInOut});
-			
-			EventTextTween = FlxTween.tween(EventText, {alpha: 1}, duration, {
-				onComplete: function(twn:FlxTween) {
-					if(finishCallback != null) {
-						finishCallback();
-					}
-				},
-			ease: FlxEase.sineInOut});
-		*/	
+	
 		} else {
 		    try{
-			   // FlxG.sound.play(Paths.sound('loading_open_alpha'),ClientPrefs.data.CustomFadeSound);
-         //   }
-			//EventText.text = 'COMPLETED !';
-			//if (!ClientPrefs.data.CustomFadeText) {
-			  //  EventText.text = '';
-			  //  WaterMark.text = '';
-			}
+			    //FlxG.sound.play(Paths.sound('loading_open_alpha'),ClientPrefs.data.CustomFadeSound);
+		    }
 			loadAlphaTween = FlxTween.tween(loadAlpha, {alpha: 0}, duration, {
 				onComplete: function(twn:FlxTween) {
 					close();
 				},
 			ease: FlxEase.sineInOut});
-			
-			/*loadTextTween = FlxTween.tween(WaterMark, {alpha: 0}, duration, {
-				onComplete: function(twn:FlxTween) {
-					close();
-				},
-			ease: FlxEase.sineInOut});
-			
-			EventTextTween = FlxTween.tween(EventText, {alpha: 0}, duration, {
-				onComplete: function(twn:FlxTween) {
-					close();
-				},
-			ease: FlxEase.sineInOut});
-			*/
+		
 			
     		}
 		}        
