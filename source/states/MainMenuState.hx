@@ -31,6 +31,7 @@ class MainMenuState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camOther:FlxCamera;
 	var optionTween:Array<FlxTween> = [];
+	var selectedTween:Array<FlxTween> = [];
 	var cameraTween:Array<FlxTween> = [];
 	
 	var optionShit:Array<String> = [
@@ -460,12 +461,12 @@ class MainMenuState extends MusicBeatState
 			{				
 				
 				//spr.animation.play('selected');
-			    FlxTween.tween(spr, {x: 2000 - spr.height / 2}, 2.2, {
-					ease: FlxEase.backInOut
+			    FlxTween.tween(spr, {x: 1500}, 2.2, {
+					ease: FlxEase.expoInOut,
 			    });
 			
-			    FlxTween.tween(spr, {x: 2000 - spr.width / 2}, 2.2, {
-					ease: FlxEase.backInOut				
+			    FlxTween.tween(spr, {x: 1500}, 2.2, {
+					ease: FlxEase.expoInOut,	
 				});													
 			}
 		});
