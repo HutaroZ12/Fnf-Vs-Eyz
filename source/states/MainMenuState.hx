@@ -318,37 +318,6 @@ class MainMenuState extends MusicBeatState
         			}
     			});
 		    }
-		    
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-				    #if mobile && !FlxG.mouse.overlaps(virtualPad.buttonA) #end){
-        			    spr.animation.play('idle');
-    			    }
-				    #if mobile && !FlxG.mouse.overlaps(virtualPad.buttonA) #end){
-					    spr.animation.play('idle');			        			        
-			        } //work better for use virtual pad
-			    }
-    			
-    			        if (spr.animation.curAnim.name == 'selected') selectSomething();
-    			        else spr.animation.play('idle');
-    			    }
-    				if (FlxG.mouse.pressed){
-        			    curSelected = spr.ID;
-			    	
-        			    if (spr.animation.curAnim.name == 'idle'){
-        			        FlxG.sound.play(Paths.sound('scrollMenu'));	 
-        			        spr.animation.play('selected');		
-        			    }	
-        			    
-        			    menuItems.forEach(function(spr:FlxSprite){
-            	            if (spr.ID != curSelected)
-            			    {
-                			    spr.animation.play('idle');
-                			    spr.centerOffsets();
-                			}
-            		    });
-    			    }   			    
-			    }			    
 			    if(saveCurSelected != curSelected) checkChoose();
 			}
 		});
@@ -499,5 +468,5 @@ class MainMenuState extends MusicBeatState
 		    
 		    spr.updateHitbox();
         });        
-	}	
+	}		
 }
