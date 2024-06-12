@@ -214,6 +214,7 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
 
+	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
@@ -258,7 +259,6 @@ class PlayState extends MusicBeatState
 	public var judgementCounter_S:JudgementCounter; //add _S is make sure nobody make a new one broken this
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
-	public var blackBars:FlxSprite;
 	
 	public var pauseButton_menu:FlxSprite;
 
