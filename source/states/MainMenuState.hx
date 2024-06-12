@@ -703,10 +703,8 @@ class MainMenuState extends MusicBeatState
 									PlayState.SONG.arrowSkin = null;
 									PlayState.SONG.splashSkin = null;
 								}
-				    }
-				}
+					}
 		});
-	}
 	
 	for (memb in menuItems)
 					{
