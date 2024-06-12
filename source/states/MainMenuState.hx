@@ -239,7 +239,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		versionShit.antialiasing = ClientPrefs.data.antialiasing;
-        versionShit.cameras = [camHUD];
 		// NG.core.calls.event.logEvent('swag').send();
 
 		checkChoose();
@@ -463,7 +462,6 @@ class MainMenuState extends MusicBeatState
 		});
 
 		FlxTween.tween(camGame, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(camHUD, {zoom: 1.1}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camGame, {angle: 0}, 0.8, { //not use for now
 		        ease: FlxEase.cubeInOut,
 		        onComplete: function(twn:FlxTween)
