@@ -202,6 +202,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+	    	return menuItem;
 
 
 			switch (i)
@@ -253,10 +254,6 @@ class MainMenuState extends MusicBeatState
 		Achievements.reloadList();
 		#end
 		#end
-		
-		#if !mobile
-		FlxG.mouse.visible = true;
-		#end
         
 		addVirtualPad(MainMenuStateC, A_B_E);
         
@@ -264,8 +261,6 @@ class MainMenuState extends MusicBeatState
 	}
 	
 	var canBeat:Bool = true;
-	var usingMouse:Bool = true;
-	
 	var endCheck:Bool = false;
 
 	override function update(elapsed:Float)
@@ -289,14 +284,12 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.followLerp = FlxMath.bound(elapsed * 9 / (FlxG.updateFramerate / 60), 0, 1);
 
-		if (FlxG.mouse.justPressed) usingMouse = true;
 		
         if(!endCheck){
 		
 		
 		if (controls.UI_UP_P)
 			{
-			    usingMouse = false;
 				FlxG.sound.play(Paths.sound('scrollMenu'));				
 				curSelected--;
 				checkChoose();
@@ -304,15 +297,13 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.UI_DOWN_P)
 			{
-			    usingMouse = false;
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				curSelected++;
 				checkChoose();
 			}
 			
 			    
-			if (controls.ACCEPT) {
-			    usingMouse = false;				    			    
+			if (controls.ACCEPT) {				    			    
 			    
 			    menuItems.forEach(function(spr:FlxSprite)
 		        {
@@ -330,20 +321,14 @@ class MainMenuState extends MusicBeatState
 		    
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			if (usingMouse)
-			{
-				if (!FlxG.mouse.overlaps(spr)) {
-				    if (FlxG.mouse.pressed
 				    #if mobile && !FlxG.mouse.overlaps(virtualPad.buttonA) #end){
         			    spr.animation.play('idle');
     			    }
-				    if (FlxG.mouse.justReleased 
 				    #if mobile && !FlxG.mouse.overlaps(virtualPad.buttonA) #end){
 					    spr.animation.play('idle');			        			        
 			        } //work better for use virtual pad
 			    }
-    			if (FlxG.mouse.overlaps(spr)){
-    			    if (FlxG.mouse.justPressed){
+    			
     			        if (spr.animation.curAnim.name == 'selected') selectSomething();
     			        else spr.animation.play('idle');
     			    }
@@ -514,7 +499,5 @@ class MainMenuState extends MusicBeatState
 		    
 		    spr.updateHitbox();
         });        
-	}
-	
-	
+	}	
 }
