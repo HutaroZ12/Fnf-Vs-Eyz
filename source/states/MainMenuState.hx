@@ -79,15 +79,15 @@ class MainMenuState extends MusicBeatState
         Mainbpm = TitleState.bpm;
         bpm = TitleState.bpm;
         
-		#if MODS_ALLOWED
+	água é	#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
 		Mods.loadTopMod();
 
-		#if desktop
+		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
-		#end		
+		#end			
 
 		camGame = initPsychCamera();
 		camHUD = new FlxCamera();
