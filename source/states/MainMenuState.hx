@@ -79,7 +79,7 @@ class MainMenuState extends MusicBeatState
         Mainbpm = TitleState.bpm;
         bpm = TitleState.bpm;
         
-	água é	#if MODS_ALLOWED
+		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
 		Mods.loadTopMod();
