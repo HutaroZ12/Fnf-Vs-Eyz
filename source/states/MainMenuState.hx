@@ -94,12 +94,10 @@ class MainMenuState extends MusicBeatState
 		#end		
 
 		camGame = initPsychCamera();
-		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
 		camOther.bgColor.alpha = 0;
 		camHUD.bgColor.alpha = 0;
 				
-		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);		
 
 		persistentUpdate = persistentDraw = true;
@@ -237,7 +235,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.antialiasing = ClientPrefs.data.antialiasing;
 		add(versionShit);
-		versionShit.cameras = [camHUD];
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + '0.2.8', 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -264,7 +261,6 @@ class MainMenuState extends MusicBeatState
 		#end
         
 		addVirtualPad(MainMenuStateC, A_B_E);
-		virtualPad.cameras = [camHUD];
         
 		super.create();
 	}
