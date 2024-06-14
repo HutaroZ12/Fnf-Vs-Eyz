@@ -96,7 +96,6 @@ class MainMenuState extends MusicBeatState
 		camGame = initPsychCamera();
 		camOther = new FlxCamera();
 		camOther.bgColor.alpha = 0;
-		camHUD.bgColor.alpha = 0;
 				
 		FlxG.cameras.add(camOther, false);		
 
@@ -240,7 +239,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		versionShit.antialiasing = ClientPrefs.data.antialiasing;
-        versionShit.cameras = [camHUD];
 		// NG.core.calls.event.logEvent('swag').send();
 
 		checkChoose();
@@ -389,7 +387,7 @@ class MainMenuState extends MusicBeatState
         SoundTime = FlxG.sound.music.time / 1000;
         BeatTime = 60 / bpm;
         
-        if ( Math.floor(SoundTime/BeatTime) % 4  == 0 && canClick && canBeat) {
+        if ( Math.floor(SoundTime/BeatTime) % 4  == 0 && canBeat) {
         
             canBeat = false;
            
