@@ -164,14 +164,12 @@ class PlayState extends MusicBeatState
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Character = null;
-
-	public var blackBars:FlxSprite;
-
+	
 	public var notes:FlxTypedGroup<Note>;
 	public var killNotes:Array<Note> = [];
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<EventNote> = [];
-    public var extraEvents:Array<Array<Dynamic>> = [];
+        public var extraEvents:Array<Array<Dynamic>> = [];
     
 	public var camFollow:FlxObject;
 	private static var prevCamFollow:FlxObject;
@@ -216,6 +214,7 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
 
+	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
@@ -558,7 +557,7 @@ class PlayState extends MusicBeatState
           	blackBars.visible = true;
         	blackBars.scrollFactor.set();    		
          	add(blackBars);
-		blackBars.camera = camHUD;
+		blackBars.camera = camGame;
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
