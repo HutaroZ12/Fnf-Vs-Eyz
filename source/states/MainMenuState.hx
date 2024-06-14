@@ -188,8 +188,8 @@ class MainMenuState extends MusicBeatState
 		{
 			
 			var menuItem:FlxSprite = new FlxSprite(-600, 0);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
+			menuItem.scale.x = 0.7;
+			menuItem.scale.y = 0.7;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -400,12 +400,12 @@ class MainMenuState extends MusicBeatState
 			camGame.zoom = 1 + 0.015;			
 			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
 		    
-			menuItems.forEach(function(spr:FlxSprite)	{
+			/*menuItems.forEach(function(spr:FlxSprite)	{
 				spr.scale.x = 0.7;
 				spr.scale.y = 0.7;
 				    FlxTween.tween(spr.scale, {x: 0.7}, 0.7, {ease: FlxEase.cubeOut});
 				    FlxTween.tween(spr.scale, {y: 0.7}, 0.7, {ease: FlxEase.cubeOut});
-			
+			*/
 				
             });
             
@@ -447,17 +447,24 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			if (curSelected == spr.ID)
-			{				
-				
-				//spr.animation.play('selected');
-			    FlxTween.tween(spr, {x: -2000 - spr.height / 2}, 2.2, {
-					ease: FlxEase.backInOut
-			    });
-			
-			    FlxTween.tween(spr, {x: -2000 - spr.width / 2}, 2.2, {
-					ease: FlxEase.backInOut				
-				});													
+			if (curSelected != spr.ID)
+						{
+							FlxTween.tween(spr, {x: -2000}, 2.2, {
+								ease: FlxEase.expoInOut,
+							});
+							
+						}
+						else
+						{
+							
+
+							FlxTween.tween(spr, {x: -2000}, 2.2, {
+								ease: FlxEase.expoInOut,
+							});
+
+							FlxTween.tween(spr, {alpha: 0}, 2.2, {
+								ease: FlxEase.expoInOut,
+							});													
 			}
 		});
 
