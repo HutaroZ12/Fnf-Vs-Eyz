@@ -213,7 +213,8 @@ class PlayState extends MusicBeatState
     var nps:Int = 0;
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
-	
+
+	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
@@ -260,7 +261,6 @@ class PlayState extends MusicBeatState
 	var scoreTxtTween:FlxTween;
 	
 	public var pauseButton_menu:FlxSprite;
-	public var blackBars:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -551,14 +551,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
-		blackBars = new FlxSprite(2, 2).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
-    	        blackBars.setGraphicSize(1280, 720);
-                blackBars.scrollFactor.set();
-          	blackBars.visible = true;
-        	blackBars.scrollFactor.set();    		
-         	add(blackBars);
-		blackBars.camera = camHUD;
-
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
@@ -626,6 +618,14 @@ class PlayState extends MusicBeatState
 		uiGroup.add(botplayTxt);
 		if(ClientPrefs.data.downScroll)
 			botplayTxt.y = timeBar.y - 78;
+
+		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+    	        blackBars.setGraphicSize(1280, 720);
+                blackBars.scrollFactor.set();
+          	blackBars.visible = false;
+        	blackBars.scrollFactor.set();    		
+         	add(blackBars);
+		blackBars.camera = camHUD;
 
 		if(ClientPrefs.data.timeBarType == 'Song Name')
 		{
