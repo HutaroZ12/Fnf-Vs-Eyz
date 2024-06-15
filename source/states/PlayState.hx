@@ -533,6 +533,15 @@ class PlayState extends MusicBeatState
 		comboGroup = new FlxSpriteGroup();
 		add(comboGroup);
 		cachePopUpScore();
+
+		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+    	        blackBars.setGraphicSize(1280, 720);
+                blackBars.scrollFactor.set();
+          	blackBars.visible = !ClientPrefs.data.hideHud;
+        	blackBars.scrollFactor.set();
+		BlackBars.camera = camHUD;
+         	add(blackBars);
+				
 		
 		uiGroup = new FlxSpriteGroup();
 		add(uiGroup);
@@ -550,13 +559,6 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
-
-		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
-    	        blackBars.setGraphicSize(1280, 720);
-                blackBars.scrollFactor.set();
-          	blackBars.visible = !ClientPrefs.data.hideHud;
-        	blackBars.scrollFactor.set();    
-         	add(blackBars);
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
