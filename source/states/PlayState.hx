@@ -647,7 +647,7 @@ class PlayState extends MusicBeatState
                 blackBars.scrollFactor.set();
           	blackBars.visible = !ClientPrefs.data.hideHud;
         	blackBars.scrollFactor.set();
-		BlackBars.camera = camHUD;
+		blackBars.camera = camHUD;
          	add(blackBars);
         
 		opponentStrums = new FlxTypedGroup<StrumNote>();
