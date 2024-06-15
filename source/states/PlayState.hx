@@ -554,10 +554,10 @@ class PlayState extends MusicBeatState
 		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
     	        blackBars.setGraphicSize(1280, 720);
                 blackBars.scrollFactor.set();
-          	blackBars.visible = true;
+          	blackBars.visible = !ClientPrefs.data.hideHud;
         	blackBars.scrollFactor.set();    		
          	add(blackBars);
-		blackBars.camera = [camHUD];
+		blackBars.camera = camHUD;
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
