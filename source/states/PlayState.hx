@@ -553,7 +553,7 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
 		bordesBars = new Bar(0, 0).makeGraphic(1280,720,'000000')
-		bordesBars.visible = true;
+		bordesBars.visible = bordesBars.active = true;
                 bordesBars.scrollFactor.set();
 		add(bordesBars);
 		bordesBars.cameras = camHUD;	
