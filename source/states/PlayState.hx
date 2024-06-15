@@ -555,9 +555,8 @@ class PlayState extends MusicBeatState
     	        blackBars.setGraphicSize(1280, 720);
                 blackBars.scrollFactor.set();
           	blackBars.visible = !ClientPrefs.data.hideHud;
-        	blackBars.scrollFactor.set();    		
+        	blackBars.scrollFactor.set();    
          	add(blackBars);
-		blackBars.camera = camHUD;
 
 		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
 		timeBar.scrollFactor.set();
