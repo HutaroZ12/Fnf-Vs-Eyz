@@ -161,9 +161,9 @@ class PlayState extends MusicBeatState
 	public var opponentVocals:FlxSound;
 	public var splitVocals:Bool = false;
 
+	public var boyfriend:Character = null;
 	public var dad:Character = null;
 	public var gf:Character = null;
-	public var boyfriend:Character = null;
 	
 	public var notes:FlxTypedGroup<Note>;
 	public var killNotes:Array<Note> = [];
@@ -214,7 +214,6 @@ class PlayState extends MusicBeatState
 	var maxNPS:Int = 0;
 	var npsCheck:Int = 0;
 
-	public var blackBars:FlxSprite;
 	public var healthBar:Bar;
 	public var timeBar:Bar;
 	public var healthBarBG:FlxSprite;
@@ -533,15 +532,6 @@ class PlayState extends MusicBeatState
 		comboGroup = new FlxSpriteGroup();
 		add(comboGroup);
 		cachePopUpScore();
-
-		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
-    	        blackBars.setGraphicSize(1280, 720);
-                blackBars.scrollFactor.set();
-          	blackBars.visible = !ClientPrefs.data.hideHud;
-        	blackBars.scrollFactor.set();
-		BlackBars.camera = camHUD;
-         	add(blackBars);
-				
 		
 		uiGroup = new FlxSpriteGroup();
 		add(uiGroup);
@@ -650,6 +640,14 @@ class PlayState extends MusicBeatState
 		grpNoteSplashes.add(splash);
 		splash.alpha = 0.000001; //cant make it invisible or it won't allow precaching
         noteGroup.add(grpNoteSplashes);
+
+		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
+    	        blackBars.setGraphicSize(1280, 720);
+                blackBars.scrollFactor.set();
+          	blackBars.visible = !ClientPrefs.data.hideHud;
+        	blackBars.scrollFactor.set();
+		BlackBars.camera = camHUD;
+         	add(blackBars);
         
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
