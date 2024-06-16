@@ -2409,7 +2409,7 @@ class PlayState extends MusicBeatState
 
 		switch(eventName) {
 			case 'Flash Lights'
-			if(value1.FlxG.camera.flash(FlxColor.WHITE, 1);
+			if(value1.FlxG.camera.flash(FlxColor.WHITE, 1)
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
