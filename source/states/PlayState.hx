@@ -165,7 +165,6 @@ class PlayState extends MusicBeatState
 	public var dad:Character = null;
 	public var gf:Character = null;
 
-	public var blackBars:FlxSprite;
 	public var notes:FlxTypedGroup<Note>;
 	public var killNotes:Array<Note> = [];
 	public var unspawnNotes:Array<Note> = [];
@@ -641,14 +640,6 @@ class PlayState extends MusicBeatState
 		grpNoteSplashes.add(splash);
 		splash.alpha = 0.000001; //cant make it invisible or it won't allow precaching
         noteGroup.add(grpNoteSplashes);
-
-		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
-    	        blackBars.setGraphicSize(1280, 720);
-                blackBars.scrollFactor.set();
-          	blackBars.visible = false;
-        	blackBars.scrollFactor.set();
-		blackBars.camera = camHUD;
-         	add(blackBars);
         
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
@@ -2407,10 +2398,7 @@ class PlayState extends MusicBeatState
 		if(Math.isNaN(flValue1)) flValue1 = null;
 		if(Math.isNaN(flValue2)) flValue2 = null;
 
-		switch(eventName) {
-			case 'Flash Lights':
-			if(value1.FlxG.camera.flash(FlxColor.WHITE, 1)
-				
+		switch(eventName) {	
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
