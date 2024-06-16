@@ -645,7 +645,7 @@ class PlayState extends MusicBeatState
 		blackBars = new FlxSprite(0, 0).loadGraphic(Paths.image('menuExtend/PlayState/blackBars'));    		
     	        blackBars.setGraphicSize(1280, 720);
                 blackBars.scrollFactor.set();
-          	blackBars.visible = !ClientPrefs.data.hideHud;
+          	blackBars.visible = false;
         	blackBars.scrollFactor.set();
 		blackBars.camera = camHUD;
          	add(blackBars);
