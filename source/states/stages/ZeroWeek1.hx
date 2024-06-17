@@ -44,109 +44,63 @@ class Template extends BaseStage
         add(blackBars);
 	}
 	
-	override function createPost()
+	override function eventPushed(event:objects.Note.EventNote)
 	{
-		// Use this function to layer things above characters!
-	}
-
-	override function update(elapsed:Float)
-	{
-		// Code here
-	}
-
-	
-	override function countdownTick(count:BaseStage.Countdown, num:Int)
-	{
-		switch(count)
+		switch(event.event)
 		{
-			case THREE: //num 0
-			case TWO: //num 1
-			case ONE: //num 2
-			case GO: //num 3
-			case START: //num 4
+			case "Dadbattle Spotlight":
+				dadbattleBlack = new BGSprite(null, -800, -400, 0, 0);
+				dadbattleBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+				dadbattleBlack.alpha = 0.25;
+				dadbattleBlack.visible = false;
+				add(dadbattleBlack);
+
+				dadbattleLight = new BGSprite('spotlight', 400, -400);
+				dadbattleLight.alpha = 0.375;
+				dadbattleLight.blend = ADD;
+				dadbattleLight.visible = false;
+				add(dadbattleLight);
+
+				dadbattleFog = new DadBattleFog();
+				dadbattleFog.visible = false;
+				add(dadbattleFog);
 		}
 	}
 
-	// Steps, Beats and Sections:
-	//    curStep, curDecStep
-	//    curBeat, curDecBeat
-	//    curSection
-	override function stepHit()
-	{
-		// Code here
-	}
-	override function beatHit()
-	{
-		// Code here
-	}
-	override function sectionHit()
-	{
-		// Code here
-	}
-
-	// Substates for pausing/resuming tweens and timers
-	override function closeSubState()
-	{
-		if(paused)
-		{
-			//timer.active = true;
-			//tween.active = true;
-		}
-	}
-
-	override function openSubState(SubState:flixel.FlxSubState)
-	{
-		if(paused)
-		{
-			//timer.active = false;
-			//tween.active = false;
-		}
-	}
-
-	// For events
 	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
 	{
 		switch(eventName)
 		{
-			case "My Event":
-		}
-	}
-	override function eventPushed(event:objects.Note.EventNote)
-	{
-		// used for preloading assets used on events that doesn't need different assets based on its values
-		switch(event.event)
-		{
-			case "My Event":
-				//precacheImage('myImage') //preloads images/myImage.png
-				//precacheSound('mySound') //preloads sounds/mySound.ogg
-				//precacheMusic('myMusic') //preloads music/myMusic.ogg
-		}
-	}
-	override function eventPushedUnique(event:objects.Note.EventNote)
-	{
-		// used for preloading assets used on events where its values affect what assets should be preloaded
-		switch(event.event)
-		{
-			case "My Event":
-				switch(event.value1)
-				{
-					// If value 1 is "blah blah", it will preload these assets:
-					case 'blah blah':
-						//precacheImage('myImageOne') //preloads images/myImageOne.png
-						//precacheSound('mySoundOne') //preloads sounds/mySoundOne.ogg
-						//precacheMusic('myMusicOne') //preloads music/myMusicOne.ogg
+			case "Dadbattle Spotlight":
+				if(flValue1 == null) flValue1 = 0;
+				var val:Int = Math.round(flValue1);
 
-					// If value 1 is "coolswag", it will preload these assets:
-					case 'coolswag':
-						//precacheImage('myImageTwo') //preloads images/myImageTwo.png
-						//precacheSound('mySoundTwo') //preloads sounds/mySoundTwo.ogg
-						//precacheMusic('myMusicTwo') //preloads music/myMusicTwo.ogg
-					
-					// If value 1 is not "blah blah" or "coolswag", it will preload these assets:
+				switch(val)
+				{
+					case 1, 2, 3: //enable and target dad
+						if(val == 1) //enable
+						{
+							dadbattleBlack.visible = true;
+							dadbattleLight.visible = true;
+							dadbattleFog.visible = true;
+							defaultCamZoom += 0.12;
+						}
+
+						var who:Character = dad;
+						if(val > 2) who = boyfriend;
+						//2 only targets dad
+						dadbattleLight.alpha = 0;
+						new FlxTimer().start(0.12, function(tmr:FlxTimer) {
+							dadbattleLight.alpha = 0.375;
+						});
+						dadbattleLight.setPosition(who.getGraphicMidpoint().x - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
+						FlxTween.tween(dadbattleFog, {alpha: 0.7}, 1.5, {ease: FlxEase.quadInOut});
+
 					default:
-						//precacheImage('myImageThree') //preloads images/myImageThree.png
-						//precacheSound('mySoundThree') //preloads sounds/mySoundThree.ogg
-						//precacheMusic('myMusicThree') //preloads music/myMusicThree.ogg
+						dadbattleBlack.visible = false;
+						dadbattleLight.visible = false;
+						defaultCamZoom -= 0.12;
+						FlxTween.tween(dadbattleFog, {alpha: 0}, 0.7, {onComplete: function(twn:FlxTween) dadbattleFog.visible = false});
 				}
 		}
 	}
