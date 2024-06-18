@@ -41,7 +41,7 @@ class ZeroWeek1 extends BaseStage
         layer5.scale.y = 1.1;
         add(layer5);
         
-        blackBars = new BGSprite('menuExtend/PlayState/blackBars', -500, -300);
+        blackBars = new BGSprite('menuExtend/PlayState/blackBars', 0, 0);
         blackBars.scrollFactor.set(1, 1);
         blackBars.scale.x = 1;
         blackBars.scale.y = 1;
