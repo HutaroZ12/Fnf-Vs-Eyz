@@ -1,6 +1,6 @@
 package states.stages;
 
-class Template extends BaseStage
+class Theater extends BaseStage
 {
     var layer1:FlxSprite;
 	var layer2:FlxSprite;
