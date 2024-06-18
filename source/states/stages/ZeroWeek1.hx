@@ -4,6 +4,13 @@ import states.stages.objects.*;
 
 class Template extends BaseStage
 {
+	var layer1:FlxSprite;
+	var layer2:FlxSprite;
+	var layer3:FlxSprite;
+	var layer4:FlxSprite;
+	var layer5:FlxSprite;
+	var blackBars:FlxSprite;
+	
 	override function create()
 	{
 		layer1 = new BGSprite('Stages/zero week 1/layer1', -500, -300);
