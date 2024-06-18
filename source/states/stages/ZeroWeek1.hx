@@ -4,7 +4,7 @@ import states.stages.objects.*;
 
 class Template extends BaseStage
 {
-	var layer1:FlxSprite;
+    var layer1:FlxSprite;
 	var layer2:FlxSprite;
 	var layer3:FlxSprite;
 	var layer4:FlxSprite;
@@ -61,6 +61,35 @@ class Template extends BaseStage
 		// Code here
 	}
 
+	
+	override function countdownTick(count:BaseStage.Countdown, num:Int)
+	{
+		switch(count)
+		{
+			case THREE: //num 0
+			case TWO: //num 1
+			case ONE: //num 2
+			case GO: //num 3
+			case START: //num 4
+		}
+	}
+
+	// Steps, Beats and Sections:
+	//    curStep, curDecStep
+	//    curBeat, curDecBeat
+	//    curSection
+	override function stepHit()
+	{
+		// Code here
+	}
+	override function beatHit()
+	{
+		// Code here
+	}
+	override function sectionHit()
+	{
+		// Code here
+	}
 
 	// Substates for pausing/resuming tweens and timers
 	override function closeSubState()
