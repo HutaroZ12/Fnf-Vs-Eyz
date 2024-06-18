@@ -444,7 +444,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			//case 'stage': new states.stages.StageWeek1(); //W
+			case 'stage': new states.stages.StageWeek1();
 			case 'zeroStage': new states.stages.Theater(); //Week 1
 			case 'spooky': new states.stages.Spooky(); //Week 2
 			case 'philly': new states.stages.Philly(); //Week 3
