@@ -1,6 +1,6 @@
 package states.stages;
 
-class Theater extends BaseStage
+class ZeroWeek1 extends BaseStage
 {
     var layer1:FlxSprite;
 	var layer2:FlxSprite;
