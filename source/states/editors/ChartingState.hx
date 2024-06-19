@@ -982,12 +982,6 @@ class ChartingState extends MusicBeatState
 		var tab_group_event = new FlxUI(null, UI_box);
 		tab_group_event.name = 'Events';
 
-		getSharedPath(file); else getLibraryPathForce(file, library);
-
-		directories.push(Paths.getSharedPath('custom_events/'));
-		directories.push(Paths.getSharedPath('/custom_events/'));
-			directories.push(Paths.getSharedPath('/custom_events/'));
-
 		#if LUA_ALLOWED
 		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 		var directories:Array<String> = [];
