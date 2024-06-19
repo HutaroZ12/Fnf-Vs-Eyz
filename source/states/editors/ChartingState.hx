@@ -982,6 +982,11 @@ class ChartingState extends MusicBeatState
 		var tab_group_event = new FlxUI(null, UI_box);
 		tab_group_event.name = 'Events';
 
+		directories.push(Paths.shared('custom_events/'));
+		directories.push(Paths.shared(shared.currentModDirectory + '/custom_events/'));
+		for(mod in Mods.getGlobalMods())
+			directories.push(Paths.shared(shared + '/custom_events/'));
+
 		#if LUA_ALLOWED
 		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 		var directories:Array<String> = [];
