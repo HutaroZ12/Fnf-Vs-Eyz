@@ -27,7 +27,7 @@ import states.TitleState;
 	public var showExtra:Bool = true;
 	public var rainbowFPS:Bool = false;
 	public var memoryType:Int = 0;	
-	public var FPSScale:Float = 1;
+	public var FPSScale:Float = 0.3;
 	public var WatermarkScale:Float = 1;
 	public var showWatermark:Bool = false;					
 	
@@ -63,7 +63,7 @@ import states.TitleState;
 	public var loadingScreen:Bool = false;
 	public var antialiasing:Bool = true;
 	public var framerate:Int = 60;
-	public var autoPause:Bool = true;	
+	public var autoPause:Bool = false;	
 	
 	public var CustomFade:String = 'Move';
 	public var CustomFadeSound:Float = 0.5;
