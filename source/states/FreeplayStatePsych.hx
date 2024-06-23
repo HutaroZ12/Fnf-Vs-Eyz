@@ -107,7 +107,7 @@ class FreeplayStatePsych extends MusicBeatState
 			songText.targetY = i;
 			grpSongs.add(songText);
 
-			songText.scaleX = Math.min(1, 980 / songText.width);
+			songText.scaleX = Math.min(0.7, 980 / songText.width);
 			songText.snapToPosition();
 
 			Mods.currentModDirectory = songs[i].folder;
