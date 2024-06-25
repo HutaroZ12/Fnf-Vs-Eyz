@@ -41,6 +41,7 @@ class FreeplayStatePsych extends MusicBeatState
 	private var iconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
+	var mainSideF:FlxSprite;
 	var intendedColor:Int;
 
 	var missingTextBG:FlxSprite;
@@ -97,6 +98,17 @@ class FreeplayStatePsych extends MusicBeatState
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		mainSideF = new FlxSprite(0).loadGraphic(Paths.image('mainSide_FreePlay'));
+		mainSideF.scrollFactor.x = 0;
+		mainSideF.scrollFactor.y = 0;
+		mainSideF.setGraphicSize(Std.int(mainSide.width * 0.75));
+		mainSideF.updateHitbox();
+		mainSideF.screenCenter();
+		mainSideF.antialiasing = ClientPrefs.data.antialiasing;
+		mainSideF.x = -500;
+		mainSideF.y = -90;
+		add(mainSide);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
