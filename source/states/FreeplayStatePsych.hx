@@ -102,13 +102,13 @@ class FreeplayStatePsych extends MusicBeatState
 		mainSideF = new FlxSprite(0).loadGraphic(Paths.image('mainSide_FreePlay'));
 		mainSideF.scrollFactor.x = 0;
 		mainSideF.scrollFactor.y = 0;
-		mainSideF.setGraphicSize(Std.int(mainSide.width * 0.75));
+		mainSideF.setGraphicSize(Std.int(mainSideF.width * 0.75));
 		mainSideF.updateHitbox();
 		mainSideF.screenCenter();
 		mainSideF.antialiasing = ClientPrefs.data.antialiasing;
 		mainSideF.x = -500;
 		mainSideF.y = -90;
-		add(mainSide);
+		add(mainSideF);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
