@@ -7,6 +7,7 @@ class ZeroWeek1 extends BaseStage
 	var layer3:FlxSprite;
 	var layer4:FlxSprite;
 	var layer5:FlxSprite;
+	var healthEdge:FlxSprite;
 	var blackBars:FlxSprite;
 	
 	override function create()
@@ -47,5 +48,12 @@ class ZeroWeek1 extends BaseStage
         blackBars.scale.y = 1;
         blackBars.camera = camHUD;
         add(blackBars);
+
+	healthEdge = new BGSprite('healthEdge', 0, 0);
+        healthEdge.scrollFactor.set(1, 1);
+        healthEdge.scale.x = 1;
+        healthEdge.scale.y = 1;
+        healthEdge.camera = camHUD;
+        add(healthEdge);
 	}	
 }
