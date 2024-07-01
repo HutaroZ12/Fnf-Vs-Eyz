@@ -436,7 +436,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxTween.tween(zerobf, {x:-1500}, 2.4, {ease: FlxEase.expoInOut});
 
-		FlxTween.tween(mainSide, {x:-1500}, 2.2, {ease: FlxEase.expoInOut});
+		FlxTween.tween(mainSide, {x:1500}, 2.2, {ease: FlxEase.expoInOut});
 		
 		/*if (ClientPrefs.data.flashing)
 		FlxFlicker.flicker(magenta, 1.1, 0.15, false);*/
@@ -447,7 +447,7 @@ class MainMenuState extends MusicBeatState
 		{
 			if (curSelected != spr.ID)
 						{
-							FlxTween.tween(spr, {x: -2000}, 2.2, {
+							FlxTween.tween(spr, {x: 2000}, 2.2, {
 								ease: FlxEase.expoInOut,
 							});
 							
@@ -456,7 +456,7 @@ class MainMenuState extends MusicBeatState
 						{
 							
 
-							FlxTween.tween(spr, {x: -2000}, 2.2, {
+							FlxTween.tween(spr, {x: 2000}, 2.2, {
 								ease: FlxEase.expoInOut,
 							});
 
