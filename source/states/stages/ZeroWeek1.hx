@@ -49,7 +49,7 @@ class ZeroWeek1 extends BaseStage
         blackBars.camera = camHUD;
         add(blackBars);
 
-	healthEdge = new BGSprite('healthEdge', 0, 0);
+	healthEdge = new BGSprite('healthEdge', 0, 2);
         healthEdge.scrollFactor.set(1, 1);
         healthEdge.scale.x = 1;
         healthEdge.scale.y = 1;
