@@ -9,6 +9,8 @@ import objects.MusicPlayer;
 
 import states.FreeplayState.SongMetadata;
 
+import flixel.addons.display.FlxBackdrop;
+
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 
