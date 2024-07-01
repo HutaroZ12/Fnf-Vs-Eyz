@@ -122,6 +122,8 @@ class FreeplayStatePsych extends MusicBeatState
 		add(bgMove);
                 bgMove.screenCenter(XY);
 		bg.scrollFactor.set(0, 0);
+
+		FlxTween.color(bgMove, 0.6, ColorArray[currentColorAgain], ColorArray[currentColor], {ease: FlxEase.cubeOut});           
 		
 		mainSideF = new FlxSprite(0).loadGraphic(Paths.image('mainSide_FreePlay'));
 		mainSideF.scrollFactor.x = 0;
