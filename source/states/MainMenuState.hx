@@ -146,7 +146,7 @@ class MainMenuState extends MusicBeatState
 		zerogf.screenCenter(Y);
 		add(zerogf);
 
-		FlxTween.tween(zerogf, {x:-100}, 2.4, {ease: FlxEase.expoInOut});
+		FlxTween.tween(zerogf, {x:-100}, 2.5, {ease: FlxEase.expoInOut});
 
 		zerobf = new FlxSprite();
 		zerobf.frames = Paths.getSparrowAtlas('menu_BFZ');
@@ -169,10 +169,10 @@ class MainMenuState extends MusicBeatState
 		mainSide.updateHitbox();
 		mainSide.screenCenter();
 		mainSide.antialiasing = ClientPrefs.data.antialiasing;
-		mainSide.x = 1200;
+		mainSide.x = 1500;
 		add(mainSide);
 
-		FlxTween.tween(mainSide, {x: 0}, 2.2, {ease: FlxEase.quartInOut});
+		FlxTween.tween(mainSide, {x: 700}, 2.2, {ease: FlxEase.quartInOut});
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
