@@ -447,7 +447,7 @@ class MainMenuState extends MusicBeatState
 		{
 			if (curSelected != spr.ID)
 						{
-							FlxTween.tween(spr, {x: 2000}, 2.2, {
+							FlxTween.tween(spr, {x: 1500}, 2.2, {
 								ease: FlxEase.expoInOut,
 							});
 							
@@ -456,7 +456,7 @@ class MainMenuState extends MusicBeatState
 						{
 							
 
-							FlxTween.tween(spr, {x: 2000}, 2.2, {
+							FlxTween.tween(spr, {x: 1500}, 2.2, {
 								ease: FlxEase.expoInOut,
 							});
 
