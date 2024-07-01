@@ -52,6 +52,21 @@ class FreeplayStatePsych extends MusicBeatState
 	var bottomBG:FlxSprite;
 
 	var player:MusicPlayer;
+	
+	var ColorArray:Array<Int> = [
+		0xFFFF0000,
+		0xFFFF0000,
+		0xFFFF0000,
+		0xFFFF0000,
+		0xFFFF0000,
+		0xFFFF0000,
+		0xFFFF0000
+	                                
+	    ];
+	public static var currentColor:Int = 1;    
+	public static var currentColorAgain:Int = 0;
+			
+	var bgMove:FlxBackdrop;
 
 	override function create()
 	{
@@ -94,11 +109,20 @@ class FreeplayStatePsych extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
 
+		bgMove = new FlxBackdrop(Paths.image('menuExtend/Others/backdrop'), XY, 0, 0);
+		bgMove.alpha = 0.1;
+		bgMove.color = ColorArray[currentColor];		
+		bgMove.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
+		bgMove.antialiasing = ClientPrefs.data.antialiasing;
+		add(bgMove);
+                bgMove.screenCenter(XY);
+		bg.scrollFactor.set(0, 0);
+		
 		mainSideF = new FlxSprite(0).loadGraphic(Paths.image('mainSide_FreePlay'));
 		mainSideF.scrollFactor.x = 0;
 		mainSideF.scrollFactor.y = 0;
