@@ -106,7 +106,7 @@ class FreeplayStatePsych extends MusicBeatState
 		mainSideF.updateHitbox();
 		mainSideF.screenCenter();
 		mainSideF.antialiasing = ClientPrefs.data.antialiasing;
-		mainSideF.x = -500;
+		mainSideF.x = -200;
 		mainSideF.y = -90;
 		add(mainSideF);
 
@@ -120,6 +120,7 @@ class FreeplayStatePsych extends MusicBeatState
 			grpSongs.add(songText);
 
 			songText.scaleX = Math.min(0.7, 980 / songText.width);
+			songText.scaleX = Math.min(0.7, 980 / songText.height);
 			songText.snapToPosition();
 
 			Mods.currentModDirectory = songs[i].folder;
