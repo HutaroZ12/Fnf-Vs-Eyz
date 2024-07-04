@@ -186,8 +186,8 @@ class MainMenuState extends MusicBeatState
 		{
 			
 			var menuItem:FlxSprite = new FlxSprite(-600, 0);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
+			menuItem.scale.x = 0.7;
+			menuItem.scale.y = 0.7;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -398,9 +398,9 @@ class MainMenuState extends MusicBeatState
 			camGame.zoom = 1 + 0.015;			
 			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
 		    
-			menuItems.forEach(function(spr:FlxSprite)	{
-				spr.scale.x = 0.7;
-				spr.scale.y = 0.7;
+			//menuItems.forEach(function(spr:FlxSprite)	{
+				//spr.scale.x = 0.7;
+			//	spr.scale.y = 0.7;
 				   // FlxTween.tween(spr.scale, {x: 0.7}, 0.7, {ease: FlxEase.cubeOut});
 				   // FlxTween.tween(spr.scale, {y: 0.7}, 0.7, {ease: FlxEase.cubeOut});
 			
