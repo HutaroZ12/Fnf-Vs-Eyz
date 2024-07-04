@@ -85,7 +85,7 @@ class TitleState extends MusicBeatState
 
 	var titleJSON:TitleData;
 
-	public static var updateVersion:String = '';
+	//public static var updateVersion:String = '';
 	
 	public static var bpm:Float = 0;
 
@@ -138,7 +138,7 @@ class TitleState extends MusicBeatState
 				
 		Mods.loadTopMod();		
 
-		#if CHECK_FOR_UPDATES
+		/*#if CHECK_FOR_UPDATES
 		if(ClientPrefs.data.checkForUpdates && !closedState) {
 		    try{
     			trace('checking for update');
@@ -163,7 +163,7 @@ class TitleState extends MusicBeatState
 			}			
 		}
 		#end				
-
+*/
 		Highscore.load();
 
 		// IGNORE THIS!!!
