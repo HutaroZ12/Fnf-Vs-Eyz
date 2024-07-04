@@ -405,7 +405,7 @@ class MainMenuState extends MusicBeatState
 				   // FlxTween.tween(spr.scale, {y: 0.7}, 0.7, {ease: FlxEase.cubeOut});
 			
 				
-            });
+         //   });
             
         }
         if ( Math.floor(SoundTime/BeatTime + 0.5) % 4  == 2) canBeat = true;        
