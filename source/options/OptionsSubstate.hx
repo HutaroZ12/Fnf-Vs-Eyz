@@ -781,8 +781,8 @@ class OptionsSubstate extends MusicBeatSubstate
                 ClientPrefs.data.FPSScale = ClientPrefs.defaultData.FPSScale;      
                 ClientPrefs.data.showExtra = ClientPrefs.defaultData.showExtra;          
                 ClientPrefs.data.memoryType = ClientPrefs.defaultData.memoryType;                
-                ClientPrefs.data.showWatermark = ClientPrefs.defaultData.showWatermark;
-                ClientPrefs.data.WatermarkScale = ClientPrefs.defaultData.WatermarkScale;            
+              //  ClientPrefs.data.showWatermark = ClientPrefs.defaultData.showWatermark;
+                //ClientPrefs.data.WatermarkScale = ClientPrefs.defaultData.WatermarkScale;            
         }
         
         ClientPrefs.saveSettings();
