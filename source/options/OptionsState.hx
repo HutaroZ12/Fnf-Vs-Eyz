@@ -835,8 +835,8 @@ class OptionsState extends MusicBeatState
                 ClientPrefs.data.FPSScale = ClientPrefs.defaultData.FPSScale;      
                 ClientPrefs.data.showExtra = ClientPrefs.defaultData.showExtra;          
                 ClientPrefs.data.memoryType = ClientPrefs.defaultData.memoryType;                
-                ClientPrefs.data.showWatermark = ClientPrefs.defaultData.showWatermark;
-                ClientPrefs.data.WatermarkScale = ClientPrefs.defaultData.WatermarkScale;
+                //ClientPrefs.data.showWatermark = ClientPrefs.defaultData.showWatermark;
+               // ClientPrefs.data.WatermarkScale = ClientPrefs.defaultData.WatermarkScale;
             case 8:
                 ClientPrefs.data.safeFrames = ClientPrefs.defaultData.safeFrames;
                 ClientPrefs.data.ratingOffset = ClientPrefs.defaultData.ratingOffset;
