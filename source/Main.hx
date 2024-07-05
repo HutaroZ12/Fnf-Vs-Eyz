@@ -163,7 +163,7 @@ class Main extends Sprite
 		FlxG.fullscreen = true;
 		#end
 		
-		var image:String = Paths.modFolders('images/menuExtend/Others/watermark.png');
+		/*var image:String = Paths.modFolders('images/menuExtend/Others/watermark.png');
 	    	    
 	    if (FileSystem.exists(image)) {
 	        if(watermark != null) removeChild(watermark);    	
@@ -179,7 +179,7 @@ class Main extends Sprite
 		    watermark.y += (1 - ClientPrefs.data.WatermarkScale) * watermark.bitmapData.height;
 			watermark.visible = ClientPrefs.data.showWatermark;
 		}								
-
+*/
 		#if linux
 		var icon = Image.fromFile("icon.png");
 		Lib.current.stage.window.setIcon(icon);
