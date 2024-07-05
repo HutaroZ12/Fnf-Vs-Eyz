@@ -28,8 +28,8 @@ import states.TitleState;
 	public var rainbowFPS:Bool = false;
 	public var memoryType:Int = 0;	
 	public var FPSScale:Float = 0.3;
-	public var WatermarkScale:Float = 1;
-	public var showWatermark:Bool = false;					
+	//public var WatermarkScale:Float = 1;
+	//public var showWatermark:Bool = false;					
 	
 	public var noteSkin:String = 'Default';
 	public var splashSkin:String = 'Psych';
