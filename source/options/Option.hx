@@ -2063,10 +2063,10 @@ class MEMType extends Option
 	private override function updateDisplay():String
 	{
 		return "Memory Data: < " + OptionsHelpers.memoryTypeArray[ClientPrefs.data.memoryType] + " >";
-	/*} 
-}
+	} 
+   }
 
-class WaterMarkOption extends Option
+/*class WaterMarkOption extends Option
 {
 	public function new(desc:String)
 	{
@@ -2132,9 +2132,9 @@ class WaterMarkScale extends Option
 	{
 	    if(Main.watermark != null) {
 		    Main.watermark.scaleX = Main.watermark.scaleY = ClientPrefs.data.WatermarkScale;		    
-		*/}
+		}
 	}
-}
+*/}
 
 //----------------------------------------------------------------
 //----------------------------------------------------------------
