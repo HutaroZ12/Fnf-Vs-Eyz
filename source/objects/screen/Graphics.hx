@@ -1,6 +1,6 @@
 package objects.screen;
 
-class Watermark extends Bitmap
+/*class Watermark extends Bitmap
 {
     public function new(x:Float = 10, y:Float = 10, Alpha:Float = 0.5){
 
@@ -21,7 +21,7 @@ class Watermark extends Bitmap
 	    this.y = Lib.current.stage.stageHeight - 5 - ClientPrefs.data.WatermarkScale * bitmapData.height;
     }
 } 
-
+*/
 class FPSBG extends Bitmap
 {
     public function new(Width:Int = 140, Height:Int = 50, Alpha:Float = 0.3){
