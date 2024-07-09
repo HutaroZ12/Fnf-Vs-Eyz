@@ -43,7 +43,7 @@ class Main extends Sprite
 	};
 
 	public static var fpsVar:FPS;
-	public static var watermark:Watermark;
+	//public static var watermark:Watermark;
 
 
 	#if mobile
