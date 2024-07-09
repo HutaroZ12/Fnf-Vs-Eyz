@@ -181,8 +181,8 @@ class OptionsState extends MusicBeatState
 				new FPSScale('Set the size of FPS counter.'),
                 new ExtraOption("Toggle the extra counter."),
                 new MEMType("Choose memory showcase data."),                
-                new WaterMarkOption('Toggle the watermark.'),
-                new WaterMarkScale('Set the size of watermark.'),
+            //    new WaterMarkOption('Toggle the watermark.'),
+               // new WaterMarkScale('Set the size of watermark.'),
 			]),			
 			new OptionCata(-1, 125, "Editing Judgements", [			
 				new FrameOption("Changes how many frames you have for hitting a note earlier or late."),
