@@ -25,10 +25,10 @@ class MainMenuState extends MusicBeatState
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
-		'story_mode', //0
-		'freeplay', //1
+		'story_mode', // 0
+		'freeplay', // 1
 		//#if MODS_ALLOWED 'mods', #end
-		'credits' //2
+		'credits' // 2
 	];
 
 	//var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
@@ -131,6 +131,8 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
+		return menuItem;
+
 
 		switch(i)
 		{
@@ -141,7 +143,6 @@ class MainMenuState extends MusicBeatState
 		  case 2:					
 	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
 		}
-		return menuItem;
 	}
 	
 	var selectedSomethin:Bool = false;
