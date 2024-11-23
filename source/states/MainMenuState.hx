@@ -134,13 +134,13 @@ class MainMenuState extends MusicBeatState
 		return menuItem;
 
 
-		switch(menuItem)
+		switch (option)
 		{
-		  case 0:
+		  case 'story_mode':
 		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
-		  case 1:
+		  case 'freeplay':
 		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
-		  case 2:					
+		  case 'credits':					
 	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
 		}
 	}
