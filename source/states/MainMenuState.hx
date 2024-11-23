@@ -132,9 +132,11 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
+	        }
+	}
 
 		switch(i)
-			{
+		{
 				case 0:
 					FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
 				case 1:
