@@ -76,16 +76,6 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		switch(i)
-		{
-		  case 0:
-		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
-		  case 1:
-		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
-		  case 2:					
-	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
-		}
-
 		for (num => option in optionShit)
 		{
 			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
@@ -141,6 +131,16 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
+
+		switch(i)
+		{
+		  case 0:
+		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
+		  case 1:
+		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
+		  case 2:					
+	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
+		}
 		return menuItem;
 	}
 	
