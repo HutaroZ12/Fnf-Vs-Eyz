@@ -25,14 +25,14 @@ class MainMenuState extends MusicBeatState
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
+		'story_mode', //0
+		'freeplay', //1
 		//#if MODS_ALLOWED 'mods', #end
-		'credits'
+		'credits' //2
 	];
 
 	//var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
-	var leftOption:String = 'options';
+	var leftOption:String = 'options'; //3
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -123,8 +123,8 @@ class MainMenuState extends MusicBeatState
 	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
-		menuItem.animation.addByPrefix('idle', '$name idle', 12, true);
-		menuItem.animation.addByPrefix('selected', '$name selected', 12, true);
+		menuItem.animation.addByPrefix('idle', '$name idle', 16, true);
+		menuItem.animation.addByPrefix('selected', '$name selected', 16, true);
 		menuItem.animation.play('idle');
 		menuItem.updateHitbox();
 		
@@ -132,8 +132,15 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
+
+		switch(i)
+		{
+		case 0:
+		  FlxTween.tween(menuItem, {x:0}, 2.4, {ease: FlxEase.expoInOut});
+		  menuItem.y = 4
 	}
 
+	
 	var selectedSomethin:Bool = false;
 
 	var timeNotMoving:Float = 0;
