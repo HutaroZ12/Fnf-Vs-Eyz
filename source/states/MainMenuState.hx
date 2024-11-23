@@ -9,7 +9,7 @@ import options.OptionsState;
 enum MainMenuColumn {
 	LEFT;
 	CENTER;
-	RIGHT;
+	//RIGHT;
 }
 
 class MainMenuState extends MusicBeatState
@@ -21,18 +21,18 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var leftItem:FlxSprite;
-	var rightItem:FlxSprite;
+	//var rightItem:FlxSprite;
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
+		//#if MODS_ALLOWED 'mods', #end
 		'credits'
 	];
 
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
-	var rightOption:String = 'options';
+	//var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
+	var leftOption:String = 'options';
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -85,10 +85,10 @@ class MainMenuState extends MusicBeatState
 
 		if (leftOption != null)
 			leftItem = createMenuItem(leftOption, 60, 490);
-		if (rightOption != null)
+		//if (rightOption != null)
 		{
-			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
-			rightItem.x -= rightItem.width;
+			//rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
+			//rightItem.x -= rightItem.width;
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -164,8 +164,8 @@ class MainMenuState extends MusicBeatState
 						selectedItem = menuItems.members[curSelected];
 					case LEFT:
 						selectedItem = leftItem;
-					case RIGHT:
-						selectedItem = rightItem;
+					//case RIGHT:
+			//	selectedItem = rightItem;
 				}
 
 				if(leftItem != null && FlxG.mouse.overlaps(leftItem))
@@ -177,7 +177,7 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}
 				}
-				else if(rightItem != null && FlxG.mouse.overlaps(rightItem))
+				/*else if(rightItem != null && FlxG.mouse.overlaps(rightItem))
 				{
 					allowMouse = true;
 					if(selectedItem != rightItem)
@@ -186,7 +186,7 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}
 				}
-				else
+			*/	else
 				{
 					var dist:Float = -1;
 					var distItem:Int = -1;
@@ -227,12 +227,12 @@ class MainMenuState extends MusicBeatState
 						curColumn = LEFT;
 						changeItem();
 					}
-					else if(controls.UI_RIGHT_P && rightOption != null)
+					/*else if(controls.UI_RIGHT_P && rightOption != null)
 					{
 						curColumn = RIGHT;
 						changeItem();
 					}
-
+*/
 				case LEFT:
 					if(controls.UI_RIGHT_P)
 					{
@@ -240,13 +240,13 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}
 
-				case RIGHT:
+				/*case RIGHT:
 					if(controls.UI_LEFT_P)
 					{
 						curColumn = CENTER;
 						changeItem();
 					}
-			}
+		*/	}
 
 			if (controls.BACK)
 			{
@@ -264,8 +264,9 @@ class MainMenuState extends MusicBeatState
 					selectedSomethin = true;
 					FlxG.mouse.visible = false;
 
-					if (ClientPrefs.data.flashing)
-						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+					FlxG.camera.flash(FlxColor.WHITE, 1);
+					//if (ClientPrefs.data.flashing)
+					//	FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
 					var item:FlxSprite;
 					var option:String;
@@ -279,9 +280,9 @@ class MainMenuState extends MusicBeatState
 							option = leftOption;
 							item = leftItem;
 
-						case RIGHT:
-							option = rightOption;
-							item = rightItem;
+						//case RIGHT:
+							//option = rightOption;
+							//item = rightItem;
 					}
 
 					FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
@@ -293,7 +294,7 @@ class MainMenuState extends MusicBeatState
 							case 'freeplay':
 								MusicBeatState.switchState(new FreeplayState());
 
-							#if MODS_ALLOWED
+							/*#if MODS_ALLOWED
 							case 'mods':
 								MusicBeatState.switchState(new ModsMenuState());
 							#end
@@ -302,7 +303,7 @@ class MainMenuState extends MusicBeatState
 							case 'achievements':
 								MusicBeatState.switchState(new AchievementsMenuState());
 							#end
-
+*/
 							case 'credits':
 								MusicBeatState.switchState(new CreditsState());
 							case 'options':
@@ -357,8 +358,8 @@ class MainMenuState extends MusicBeatState
 				selectedItem = menuItems.members[curSelected];
 			case LEFT:
 				selectedItem = leftItem;
-			case RIGHT:
-				selectedItem = rightItem;
+			//case RIGHT:
+				//selectedItem = rightItem;
 		}
 		selectedItem.animation.play('selected');
 		selectedItem.centerOffsets();
