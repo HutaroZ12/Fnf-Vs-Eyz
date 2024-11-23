@@ -132,21 +132,7 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-
-		switch(i)
-		{
-		case 1:
-		  FlxTween.tween(menuItem, {x:2}, 2.4, {ease: FlxEase.expoInOut});
-		  menuItem.y = 4;
-
-		case 2:
-		  FlxTween.tween(menuItem, {x:2}, 2.4, {ease: FlxEase.expoInOut});
-		  menuItem.y = 4;
-				
-				
-		}
-
-	}
+	        }
 
 	
 	var selectedSomethin:Bool = false;
