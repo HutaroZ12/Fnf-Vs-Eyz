@@ -32,7 +32,7 @@ class MainMenuState extends MusicBeatState
 	];
 
 	//var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
-	var leftOption:String = 'options'; //3
+	var leftOption:String = 'options';
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -84,7 +84,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 60, 490);
+			leftItem = createMenuItem(leftOption, 0, 0);
 		//if (rightOption != null)
 		{
 			//rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
@@ -132,7 +132,18 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-	        }
+
+		switch(i)
+			{
+				case 0:
+					FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
+				case 1:
+					FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
+				case 2:
+					FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
+			}
+			
+	}
 
 	
 	var selectedSomethin:Bool = false;
