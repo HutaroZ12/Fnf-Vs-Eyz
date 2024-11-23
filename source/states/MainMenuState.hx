@@ -138,6 +138,8 @@ class MainMenuState extends MusicBeatState
 		case 0:
 		  FlxTween.tween(menuItem, {x:0}, 2.4, {ease: FlxEase.expoInOut});
 		  menuItem.y = 4
+
+		}
 	}
 
 	
