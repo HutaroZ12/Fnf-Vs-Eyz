@@ -76,15 +76,19 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		switch (i)
+		for (num => option in optionShit)
 		{
-		  case 0:
-		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
-		  case 1:
-		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
-		  case 2:					
-	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
-		    }
+			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
+			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
+			item.screenCenter(X);
+		}
+
+		if (leftOption != null)
+			leftItem = createMenuItem(leftOption, 60, 490);
+		if (rightOption != null)
+		{
+			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
+			rightItem.x -= rightItem.width;
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -112,10 +116,10 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		//FlxG.camera.follow(camFollow, null, 0.15);
+		FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
-		function createMenuItem(name:String, x:Float, y:Float):FlxSprite
+	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
@@ -128,7 +132,8 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-        }
+	}
+
 		
 	var selectedSomethin:Bool = false;
 
