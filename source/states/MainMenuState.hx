@@ -132,7 +132,18 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
-		return menuItem;	
+		return menuItem;
+
+		switch(i)
+			{
+				case 0:
+					FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
+				case 1:
+					FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
+				case 2:
+					FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
+			}
+		
 	}
 		
 	var selectedSomethin:Bool = false;
