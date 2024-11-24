@@ -89,6 +89,16 @@ class MainMenuState extends MusicBeatState
 		{
 			//rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
 			//rightItem.x -= rightItem.width;
+
+		switch (i)
+		{
+		  case 0:
+		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
+		  case 1:
+		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
+		  case 2:					
+	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
+		    }
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -116,13 +126,15 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		FlxG.camera.follow(camFollow, null, 0.15);
+		//FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
+		function createMenuItem(name:String, x:Float, y:Float):FlxSprite
+	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
-		menuItem.animation.addByPrefix('idle', '$name idle', 16, true);
-		menuItem.animation.addByPrefix('selected', '$name selected', 16, true);
+		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
+		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
 		menuItem.animation.play('idle');
 		menuItem.updateHitbox();
 		
@@ -130,22 +142,8 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-
+        }
 		
-		switch (i)
-		{
-		  case 0:
-		    FlxTween.tween(menuItem, {x:650}, 2.4, {ease: FlxEase.expoInOut});
-		  case 1:
-		    FlxTween.tween(menuItem, {x:620}, 2.4, {ease: FlxEase.expoInOut});
-		  case 2:					
-	            FlxTween.tween(menuItem, {x:590}, 2.4, {ease: FlxEase.expoInOut});
-
-				
-		}
-				
-	}
-	
 	var selectedSomethin:Bool = false;
 
 	var timeNotMoving:Float = 0;
