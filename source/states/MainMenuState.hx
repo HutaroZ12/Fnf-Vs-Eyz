@@ -85,10 +85,10 @@ class MainMenuState extends MusicBeatState
 
 		if (leftOption != null)
 			leftItem = createMenuItem(leftOption, 60, 490);
-		if (rightOption != null)
+		//if (rightOption != null)
 		{
-			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
-			rightItem.x -= rightItem.width;
+			//rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
+			//rightItem.x -= rightItem.width;
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
