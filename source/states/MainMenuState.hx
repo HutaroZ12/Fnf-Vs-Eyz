@@ -167,7 +167,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.mouse.visible = true;
 				timeNotMoving = 0;
 
-				var selectedItem:FlxSpite;
+				var selectedItem:FlxSprite;
 				switch(curColumn)
 				{
 					case CENTER:
