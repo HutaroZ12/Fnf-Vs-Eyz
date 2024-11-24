@@ -81,21 +81,7 @@ class MainMenuState extends MusicBeatState
 		{
 			//var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
 			//item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
-	                //item.screenCenter(X);
-			
-		switch (i)
-		{
-		   case 0:
-		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 2;
-
-	           case 1:
-		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-	              menuItem.y = 41;
-
-		   case 2:
-		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 9;
+	                //item.screenCenter(X);	
 		}
 		
 		if (leftOption != null)
@@ -134,7 +120,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
-	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
+	//function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
