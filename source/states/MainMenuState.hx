@@ -117,21 +117,6 @@ class MainMenuState extends MusicBeatState
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 	{
-	switch (i)
-		{
-		   case 0:
-		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 2;
-
-	           case 1:
-		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-	              menuItem.y = 41;
-
-		   case 2:
-		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 9;
-		     }
-		}
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
 		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
