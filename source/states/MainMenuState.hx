@@ -79,22 +79,6 @@ class MainMenuState extends MusicBeatState
 		
 		for (num => option in optionShit)
 		{
-                switch (i)
-		{
-		   case 0:
-		      FlxTween.tween(option, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 2;
-
-	           case 1:
-		      FlxTween.tween(option, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-	              menuItem.y = 41;
-
-		   case 2:
-		      FlxTween.tween(option, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 9;
-		     }
-		}
-				
 		if (leftOption != null)
 			leftItem = createMenuItem(leftOption, 60, 490);
 		//if (rightOption != null)
