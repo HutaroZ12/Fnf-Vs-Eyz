@@ -129,7 +129,24 @@ class MainMenuState extends MusicBeatState
 		menuItems.add(menuItem);
 		return menuItem;	
 	}
+	else 
+	{
+	switch (i)
+		{
+		   case 0:
+		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+		      menuItem.y = 2;
 
+	           case 1:
+		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
+	              menuItem.y = 41;
+
+		   case 2:
+		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
+		      menuItem.y = 9;
+		     }
+		}
+		
 		
 	var selectedSomethin:Bool = false;
 
@@ -188,22 +205,7 @@ class MainMenuState extends MusicBeatState
 					var dist:Float = -1;
 					var distItem:Int = -1;
 					for (i in 0...optionShit.length)
-					{
-					switch (i)
-		{
-		   case 0:
-		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 2;
-
-	           case 1:
-		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-	              menuItem.y = 41;
-
-		   case 2:
-		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 9;
-		     }
-		}
+					{	
 						var memb:FlxSprite = menuItems.members[i];
 						if(FlxG.mouse.overlaps(memb))
 						{
