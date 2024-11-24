@@ -119,8 +119,6 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
-	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
-	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
 		menuItem.animation.addByPrefix('idle', '$name idle', 16, true);
