@@ -79,15 +79,15 @@ class MainMenuState extends MusicBeatState
 		
 		for (num => option in optionShit)
 		{
-		   case 'story_mode':
+		   case 0:
 		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 		      menuItem.y = 2;
 
-	           case 'freeplay':
+	           case 1:
 		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
 	              menuItem.y = 41;
 
-		   case 'credits':
+		   case 2:
 		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
 		      menuItem.y = 9;
 			//var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
