@@ -76,8 +76,20 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
+		
 		for (num => option in optionShit)
 		{
+		   case 'story_mode':
+		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+		      menuItem.y = 2;
+
+	           case 'freeplay':
+		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
+	              menuItem.y = 41;
+
+		   case 'credits':
+		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
+		      menuItem.y = 9;
 			//var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
 			//item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
 	                //item.screenCenter(X);
@@ -131,22 +143,7 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
-		return menuItem;
-
-		switch (i)
-		{
-	           case 0:
-		      FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 2;
-
-	           case 1:
-		      FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
-	              menuItem.y = 41;
-
-		   case 2:
-		      FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
-		      menuItem.y = 9;
-		}
+		return menuItem;	
 	}
 
 		
@@ -173,7 +170,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.mouse.visible = true;
 				timeNotMoving = 0;
 
-				var selectedItem:FlxSprite;
+				var selectedItem:FlxSpite;
 				switch(curColumn)
 				{
 					case CENTER:
