@@ -79,6 +79,11 @@ class MainMenuState extends MusicBeatState
 		
 		for (num => option in optionShit)
 		{
+		var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
+			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
+			item.screenCenter(X);
+		}
+		
 		if (leftOption != null)
 			leftItem = createMenuItem(leftOption, 60, 490);
 		//if (rightOption != null)
@@ -128,8 +133,7 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;	
-		}
-		
+	}
 		
 	var selectedSomethin:Bool = false;
 
