@@ -76,20 +76,6 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		for (num => option in optionShit)
-		{
-			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
-			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
-			item.screenCenter(X);
-		}
-
-		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 0, 0);
-		//if (rightOption != null)
-		{
-			//rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
-			//rightItem.x -= rightItem.width;
-
 		switch (i)
 		{
 		  case 0:
