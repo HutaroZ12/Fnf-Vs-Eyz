@@ -132,25 +132,29 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-
-		for (num => option in optionShit)
-		{  
-		        var menuItem:FlxSprite = FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-			/*	menuItem.y = 2;
-
-			case 'freeplay':
-		                FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				menuItem.y = 2;
-
-			case 'credits':
-	                        FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				menuItem.y = 2;
-
-			case 'options':
-	                        FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				menuItem.y = 2;
-		*/	}	  
 	}
+
+	        var optionShit:Array<String>
+		var menuItems:FlxTypedGroup<FlxSprite>;
+	        switch (i)
+			{
+			    case 0:
+				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+				menuItem.y = 2;
+
+			    case 1:
+				FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
+				menuItem.y = 41;
+
+			    case 2:
+				FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
+				menuItem.y = 9;
+
+			    case 3:
+				FlxTween.tween(menuItem, {x:104}, 2.2, {ease: FlxEase.expoInOut});
+				menuItem.y = 34;
+			}	
+		}  
 
 	var selectedSomethin:Bool = false;
 
