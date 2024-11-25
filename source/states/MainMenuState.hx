@@ -31,7 +31,7 @@ class MainMenuState extends MusicBeatState
 		'credits' // 2
 	];
 
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end; // 3
+	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end; 
 	var rightOption:String = 'options'; // 4
 
 	var magenta:FlxSprite;
@@ -135,21 +135,21 @@ class MainMenuState extends MusicBeatState
 
 		switch (menuItem)
 		{   
-		        case 0:FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+		        case 'story mode':
+				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
 
-			case 1:FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+			case 'freeplay':
+		                FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
 
-			case 2:FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+			case 'credits':
+	                        FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
 
-			case 3:FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+			case 'options':
+	                        FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
-
-			case 4:FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				menuItem.y = 2;
-			    
 			}	  
 	}
 
