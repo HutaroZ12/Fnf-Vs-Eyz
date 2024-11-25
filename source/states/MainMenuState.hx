@@ -133,11 +133,10 @@ class MainMenuState extends MusicBeatState
 		menuItems.add(menuItem);
 		return menuItem;
 
-		switch (daChoice)
+		switch (menuItem)
 		{   
-		        case 'story mode':
-				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
-				menuItem.y = 2;
+		        case 'story mode':FlxSprite = FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+			/*	menuItem.y = 2;
 
 			case 'freeplay':
 		                FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
@@ -150,7 +149,7 @@ class MainMenuState extends MusicBeatState
 			case 'options':
 	                        FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
-			}	  
+		*/	}	  
 	}
 
 	var selectedSomethin:Bool = false;
