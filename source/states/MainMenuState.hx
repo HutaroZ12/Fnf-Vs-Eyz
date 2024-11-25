@@ -133,9 +133,9 @@ class MainMenuState extends MusicBeatState
 		menuItems.add(menuItem);
 		return menuItem;
 
-		switch (menuItem)
-		{   
-		        case 'story mode':FlxSprite = FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
+		for (num => option in optionShit)
+		{  
+		        var menuItem:FlxSprite = FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 			/*	menuItem.y = 2;
 
 			case 'freeplay':
