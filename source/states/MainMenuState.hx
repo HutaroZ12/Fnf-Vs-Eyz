@@ -134,8 +134,8 @@ class MainMenuState extends MusicBeatState
 		return menuItem;
 	}
 
-	        var optionShit:Array<String>
-		var menuItems:FlxTypedGroup<FlxSprite>;
+	        var menuItem:FlxSprite;
+		var option:String;
 	        switch (i)
 			{
 			    case 0:
