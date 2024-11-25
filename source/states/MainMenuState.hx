@@ -213,7 +213,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.mouse.visible = true;
 		#end
         
-		addVirtualPad(MainMenuStateC, A_B_E);
+		addVirtualPad(NONE, E);
         
 		super.create();
 	}
@@ -283,7 +283,7 @@ class MainMenuState extends MusicBeatState
     			});
 		    }
 		    
-		/*menuItems.forEach(function(spr:FlxSprite)
+		menuItems.forEach(function(spr:FlxSprite)
 		{
 			if (usingMouse && canClick)
 			{
@@ -322,7 +322,7 @@ class MainMenuState extends MusicBeatState
 			    if(saveCurSelected != curSelected) checkChoose();
 			}
 		});
-		*/
+		
 			if (controls.BACK)
 			{
 				endCheck = true;
