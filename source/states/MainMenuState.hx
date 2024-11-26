@@ -211,7 +211,7 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}
 				}
-				/*else
+				else
 				{
 					var dist:Float = -1;
 					var distItem:Int = -1;
