@@ -32,7 +32,7 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end; 
-	var rightOption:String = 'options'; // 4
+	var rightOption:String = 'options'; // 3
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -119,43 +119,45 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
-	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
-	{
-		var menuItem:FlxSprite = new FlxSprite(x, y);
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
-		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
-		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
-		menuItem.animation.play('idle');
-		menuItem.updateHitbox();
-		
-		menuItem.antialiasing = ClientPrefs.data.antialiasing;
-		menuItem.scrollFactor.set();
-		menuItems.add(menuItem);
-		return menuItem;
-	}
+	for (i in 0...optionShit.length)
+		{
+			
+			var menuItem:FlxSprite = new FlxSprite(-600, 0);
+			menuItem.scale.x = 0.7;
+			menuItem.scale.y = 0.7;
+			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
+			menuItem.animation.addByPrefix('selected', optionShit[i] + " selected", 24);
+			menuItem.animation.play('idle');
+			menuItem.ID = i;
+			menuItem.x = 1500;
+			menuItems.add(menuItem);
+			var scr:Float = (optionShit.length - 4) * 0.135;
+			if(optionShit.length < 6) scr = 0;			
+			menuItem.antialiasing = ClientPrefs.data.antialiasing;
+			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+			menuItem.updateHitbox();
 
-	        var menuItem:FlxSprite;
-		var option:String;
-	
-	        switch (option)
+
+			switch (i)
 			{
-			    case 'story_mode':
+			    case 0:
 				FlxTween.tween(menuItem, {x:164}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 2;
 
-			    case 'freeplay':
+			    case 1:
 				FlxTween.tween(menuItem, {x:134}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 41;
 
-			    case 'credits':
+			    case 2:
 				FlxTween.tween(menuItem, {x:114}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 9;
 
-			    case 'options':
+			    case 3:
 				FlxTween.tween(menuItem, {x:104}, 2.2, {ease: FlxEase.expoInOut});
 				menuItem.y = 34;
 			}	
-		}  
+		}    
 
 	var selectedSomethin:Bool = false;
 
