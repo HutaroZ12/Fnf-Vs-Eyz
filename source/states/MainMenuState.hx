@@ -120,25 +120,25 @@ class MainMenuState extends MusicBeatState
 	}
 
 	        function createMenuItem(name:String, x:Float, y:Float):FlxSprite
-		{
+	        {
+		var menuItem:FlxSprite = new FlxSprite(x, y);
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
+		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
+		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
+		menuItem.animation.play('idle');
+		menuItem.updateHitbox();
+		
+		menuItem.antialiasing = ClientPrefs.data.antialiasing;
+		menuItem.scrollFactor.set();
+		menuItems.add(menuItem);
+		return menuItem;
+         	}
+
+
+			for (i in 0...optionShit.length)
+			{
+			var memb:FlxSprite = menuItems.members[i];
 			
-			var menuItem:FlxSprite = new FlxSprite(-600, 0);
-			menuItem.scale.x = 0.7;
-			menuItem.scale.y = 0.7;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " selected", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.x = 1500;
-			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;			
-			menuItem.antialiasing = ClientPrefs.data.antialiasing;
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
-			menuItem.updateHitbox();
-
-
 			switch (i)
 			{
 			    case 0:
