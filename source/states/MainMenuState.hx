@@ -132,7 +132,6 @@ class MainMenuState extends MusicBeatState
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
 		return menuItem;
-         	}
 
 
 			for (i in 0...optionShit.length)
