@@ -119,7 +119,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
-	for (i in 0...optionShit.length)
+	        function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 		{
 			
 			var menuItem:FlxSprite = new FlxSprite(-600, 0);
@@ -211,7 +211,7 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}
 				}
-				else
+				/*else
 				{
 					var dist:Float = -1;
 					var distItem:Int = -1;
@@ -229,7 +229,7 @@ class MainMenuState extends MusicBeatState
 							}
 						}
 					}
-
+*/
 					if(distItem != -1 && selectedItem != menuItems.members[distItem])
 					{
 						curColumn = CENTER;
